@@ -12,7 +12,8 @@ class Burger:
     amount = 0
 
     # --  page 1------
-    def main(sf):
+    # ------ page 2------
+    def Login(sf):
         try:
             sf.scr.destroy()
             sf.scr = Tk()
@@ -21,33 +22,8 @@ class Burger:
                 sf.scr = Tk()
             except:
                 pass
-
-        sf.scr.geometry("1366x768+80+10")
-        sf.scr.title("BURGER ISLAND")
-        sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
-        sf.mainf1 = Frame(sf.scr, height=150, width=1366)
-        sf.logo = PhotoImage(file="logo1.png")
-        sf.l = Label(sf.mainf1, image=sf.logo)
-        sf.l.place(x=0, y=0)
-        sf.mainf1.pack(fill=BOTH, expand=1)
-        sf.mainf2 = Frame(sf.scr, height=618, width=1366)
-        sf.c = Canvas(sf.mainf2, height=618, width=1366)
-        sf.c.pack()
-        sf.back = PhotoImage(file="burgermain.png")
-        sf.c.create_image(683, 284, image=sf.back)
-        sf.lab = Button(sf.mainf2, text="Click Here to enter the World of Burgers", command=lambda: sf.Login(),
-                        cursor="hand2", bd=10, font=("cooper black", 30, 'bold'), fg="white", bg="#0b1335")
-        sf.lab.place(x=250, y=250)
-        sf.mainf2.pack(fill=BOTH, expand=1)
-        sf.scr.mainloop()
-
-    # ------ page 2------
-    def Login(sf):
         sf.cartlist = []
         sf.amount = 0
-        sf.scr.destroy()
-        sf.scr = Tk()
         sf.scr.title("")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
@@ -55,9 +31,6 @@ class Burger:
         sf.loginf1 = Frame(sf.scr, height=150, width=1366)
         sf.logo = PhotoImage(file="logo.PNG")
         sf.ba = Label(sf.loginf1, image=sf.logo, height=150).place(x=0, y=0)
-        sf.home = Button(sf.loginf1, text="HOME", command=lambda: sf.main(), bg="#0b1335", cursor="hand2", bd=0,
-                         fg="white", font=("Montserrat Bold", 13), relief=SUNKEN, padx=12, pady=1, justify=CENTER)
-        sf.home.place(x=800, y=100)
         sf.abt = Button(sf.loginf1, text="ABOUT US", bg="#0b1335", cursor="hand2", bd=0, fg="white",
                         font=("Montserrat Bold", 13), relief=SUNKEN, padx=12, pady=1, justify=CENTER)
         sf.abt.config(command=lambda: sf.about())
@@ -137,7 +110,7 @@ class Burger:
         sf.regf1 = Frame(sf.scr, height=150, width=1366)
         sf.logo = PhotoImage(file="logo.PNG")
         sf.ba = Label(sf.regf1, image=sf.logo, height=150).place(x=0, y=0)
-        sf.home = Button(sf.regf1, text="Home", command=lambda: sf.main(), bg="#0b1335", cursor="hand2", fg="white",
+        sf.home = Button(sf.regf1, text="Home", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                          font=("default", 16))
         sf.home.place(x=800, y=100)
         sf.abt = Button(sf.regf1, text="About Us", command=lambda: sf.about(), bg="#0b1335", cursor="hand2", fg="white",
@@ -1691,4 +1664,4 @@ class Burger:
 
 
 x = Burger()
-x.main()
+x.Login()
