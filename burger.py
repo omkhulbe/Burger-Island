@@ -52,7 +52,7 @@ class Burger:
         sf.loginf2 = Frame(sf.scr, height=618, width=1366)
         sf.c = Canvas(sf.loginf2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
+        sf.logo1 = PhotoImage(file="Images/Assets/burgermain.png")
         sf.c.create_image(683, 309, image=sf.logo1)
         sf.c.create_rectangle(50, 100, 700, 450, fill="#d3ede6", outline="white", width=6)
         sf.log = Label(sf.loginf2, text="LOGIN", fg="white", bg="#0b1335", width=26, font=("cooper black", 27))
