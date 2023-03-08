@@ -24,23 +24,28 @@ class Burger:
                 pass
         sf.cartlist = []
         sf.amount = 0
-        sf.scr.title("")
+        sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.loginf1 = Frame(sf.scr, height=150, width=1366)
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
         sf.ba = Label(sf.loginf1, image=sf.logo, height=150).place(x=0, y=0)
-        sf.abt = Button(sf.loginf1, text="ABOUT US", bg="#0b1335", cursor="hand2", bd=0, fg="white",
-                        font=("Montserrat Bold", 13), relief=SUNKEN, padx=12, pady=1, justify=CENTER)
-        sf.abt.config(command=lambda: sf.about())
-        sf.abt.place(x=1210, y=100)
+        #sf.abt = Button(sf.loginf1, text="ABOUT US", bg="#0b1335", cursor="hand2", bd=0, fg="white",
+        #                font=("Montserrat Bold", 13), relief=SUNKEN, padx=12, pady=1, justify=CENTER)
+        #sf.abt.config(command=lambda: sf.about())
+        #sf.abt.place(x=1210, y=100)
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
             sf.tim.after(1000, time)
-        sf.tim = Label(sf.loginf1, fg="white", font=("default", 16), bg="#0b1335")
-        sf.tim.place(x=925, y=50)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.loginf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.loginf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
         time()
 
         sf.loginf1.pack(fill=BOTH, expand=1)
@@ -106,22 +111,22 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.regf1 = Frame(sf.scr, height=150, width=1366)
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
         sf.ba = Label(sf.regf1, image=sf.logo, height=150).place(x=0, y=0)
-        sf.home = Button(sf.regf1, text="Home", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
-                         font=("default", 16))
-        sf.home.place(x=800, y=100)
-        sf.abt = Button(sf.regf1, text="About Us", command=lambda: sf.about(), bg="#0b1335", cursor="hand2", fg="white",
-                        font=("default", 16))
-        sf.abt.place(x=1210, y=100)
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
             sf.tim.after(1000, time)
-        sf.tim = Label(sf.regf1, fg="white", font=("default", 16), bg="#0b1335")
-        sf.tim.place(x=925, y=50)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.regf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.regf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
         time()
 
         sf.regf1.pack(fill=BOTH, expand=1)
@@ -196,20 +201,29 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.admainf1 = Frame(sf.scr, bg="#f2e8b8", height=150, width=1366)
         sf.admainf1.pack(side=TOP, fill=BOTH)
         sf.c = Canvas(sf.admainf1, height=150, bg="#f2e8b8", width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo2.png")
-        sf.c.create_image(683, 50, image=sf.logo)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(900, 50, text=sf.localtime, fill="white", font=("default", 16))
-        sf.c.create_text(683, 125, font=('Cooper Black', 25, 'bold', 'underline'), text="Management System")
-        sf.c.create_text(900, 80, text="WELCOME, OM KHULBE", fill="white", font=("default", 20))
-        sf.out = Button(sf.admainf1, text="Log Out", bg="#0b1335", cursor="hand2", command=lambda: sf.Login(),
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
+        sf.c.create_image(683, 75, image=sf.logo)
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.admainf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.admainf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
+        '''''sf.out = Button(sf.admainf1, text="Log Out", bg="#0b1335", cursor="hand2", command=lambda: sf.Login(),
                         fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.out.place(x=1100, y=25)
+        sf.out.place(x=1100, y=25)'''''
 
         def Ref(sf):
             sf.con = connect("burger.db")
@@ -450,7 +464,7 @@ class Burger:
         reset(sf)
         sf.l = ["Medium", "Large", "Regular"]
 
-        # veg pizza
+        # veg burger
         sf.non = Label(sf.admainf2, pady=2, text=(" "), font=('Cooper Black', 20), bg="#f2e8b8", bd=10, anchor='w')
         sf.non.grid(row=0, column=1)
         sf.lbl1 = Label(sf.admainf2, pady=2, font=('Cooper Black', 20, 'bold', 'underline'), bg="#f2e8b8",
@@ -779,17 +793,28 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.menuf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.menuf1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
-        sf.home = Button(sf.menuf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
+        ''''sf.home = Button(sf.menuf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
                          fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(1000, 50, text=sf.localtime, fill="white", font=("default", 16))
+        sf.home.place(x=1000, y=90)'''''
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.menuf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.menuf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
         sf.menuf1.pack(fill=BOTH, expand=1)
 
         sf.menuf2 = Frame(sf.scr, height=618, width=1366)
@@ -828,20 +853,31 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.pizf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.pizf1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
         sf.c.create_text(950, 80, text="WELCOME", fill="white", font=("default", 20))
         sf.name = " USER"
         sf.c.create_text(950, 120, text=sf.name, fill="white", font=("default", 18))
-        sf.out = Button(sf.pizf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
+        ''''sf.out = Button(sf.pizf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                         font=("default", 16))
-        sf.out.place(x=1200, y=100)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(1000, 40, text=sf.localtime, fill="white", font=("default", 16))
+        sf.out.place(x=1200, y=100)'''''
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.pizf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.pizf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
         sf.pizf1.pack(fill=BOTH, expand=1)
 
         sf.pizf2 = Frame(sf.scr, height=618, width=1366)
@@ -873,17 +909,28 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.vegf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.vegf1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
-        sf.home = Button(sf.vegf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
+        ''''sf.home = Button(sf.vegf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                          bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(1000, 50, text=sf.localtime, fill="white", font=("default", 16))
+        sf.home.place(x=1000, y=90)'''''
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.vegf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.vegf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
         sf.vegf1.pack(fill=BOTH, expand=1)
 
         sf.vegf2 = Frame(sf.scr, height=618, width=1366)
@@ -1077,17 +1124,28 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.nonvegf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.nonvegf1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
-        sf.home = Button(sf.nonvegf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
+        ''''sf.home = Button(sf.nonvegf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
                          fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(1000, 50, text=sf.localtime, fill="white", font=("default", 16))
+        sf.home.place(x=1000, y=90)'''''
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.nonvegf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.nonvegf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
         sf.nonvegf1.pack(fill=BOTH, expand=1)
 
         sf.nonvegf2 = Frame(sf.scr, height=618, width=1366)
@@ -1271,17 +1329,28 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.spef1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.spef1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
-        sf.home = Button(sf.spef1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
+        ''''sf.home = Button(sf.spef1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                          bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(1000, 50, text=sf.localtime, fill="white", font=("default", 16))
+        sf.home.place(x=1000, y=90)'''''
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.spef1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.spef1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
         sf.spef1.pack(fill=BOTH, expand=1)
 
         sf.spef2 = Frame(sf.scr, height=618, width=1366)
@@ -1360,17 +1429,29 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.sidef1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.sidef1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
-        sf.home = Button(sf.sidef1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
+        ''''sf.home = Button(sf.sidef1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
                          fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(1000, 50, text=sf.localtime, fill="white", font=("default", 16))
+        sf.home.place(x=1000, y=90)'''''
+
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.sidef1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.sidef1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
         sf.sidef1.pack(fill=BOTH, expand=1)
 
         sf.sidef2 = Frame(sf.scr, height=618, width=1366)
@@ -1447,15 +1528,28 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.addf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.addf1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
-        sf.out = Button(sf.addf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
+        ''''sf.out = Button(sf.addf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                         font=("default", 16))
-        sf.out.place(x=1200, y=100)
+        sf.out.place(x=1200, y=100)'''''
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.addf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.addf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
         sf.addf1.pack(fill=BOTH, expand=1)
 
         sf.addf2 = Frame(sf.scr, height=618, width=1366)
@@ -1514,17 +1608,28 @@ class Burger:
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('burger.ico')
+        file = "Images/Assets/burger.ico"
+        sf.scr.iconbitmap(file)
         sf.ordf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.ordf1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
+        sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
-        sf.home = Button(sf.ordf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
+        ''''sf.home = Button(sf.ordf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                          bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(1000, 50, text=sf.localtime, fill="white", font=("default", 16))
+        sf.home.place(x=1000, y=90)'''''
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+
+        sf.stringdate = strftime('%d %b %Y')
+        sf.strdat = Label(sf.ordf1, text=sf.stringdate, fg="black", font=("Montserrat ExtraBold", 15), bg="white")
+        sf.strdat.place(x=1025, y=65)
+        sf.tim = Label(sf.ordf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
+        sf.tim.place(x=1040, y=95)
+        time()
+
         sf.ordf1.pack(fill=BOTH, expand=1)
 
         sf.ordf2 = Frame(sf.scr, height=618, width=1366)
