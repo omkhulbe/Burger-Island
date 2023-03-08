@@ -1,8 +1,10 @@
 from tkinter import *
 import time
+from time import strftime
 from sqlite3 import *
 import random
 from tkinter import messagebox
+from cryptography.fernet import Fernet
 
 
 class Burger:
@@ -22,8 +24,8 @@ class Burger:
 
         sf.scr.geometry("1366x768+80+10")
         sf.scr.title("BURGER ISLAND")
-        # sf.scr.resizable(False, False)
-        sf.scr.iconbitmap('b.ico')
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.mainf1 = Frame(sf.scr, height=150, width=1366)
         sf.logo = PhotoImage(file="logo1.png")
         sf.l = Label(sf.mainf1, image=sf.logo)
@@ -48,23 +50,26 @@ class Burger:
         sf.scr = Tk()
         sf.scr.title("")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.loginf1 = Frame(sf.scr, height=150, width=1366)
         sf.logo = PhotoImage(file="logo.PNG")
         sf.ba = Label(sf.loginf1, image=sf.logo, height=150).place(x=0, y=0)
-        sf.home = Button(sf.loginf1, text="Home", command=lambda: sf.main(), bg="#0b1335", cursor="hand2", bd=4,
-                         fg="white", font=("cooper black", 16))
+        sf.home = Button(sf.loginf1, text="HOME", command=lambda: sf.main(), bg="#0b1335", cursor="hand2", bd=0,
+                         fg="white", font=("Montserrat Bold", 13), relief=SUNKEN, padx=12, pady=1, justify=CENTER)
         sf.home.place(x=800, y=100)
-        sf.adlog = Button(sf.loginf1, text="Administrator Login", command=lambda: sf.Adminlogin(), cursor="hand2", bd=4,
-                          bg="#0b1335", fg="white", font=("cooper black", 16))
-        sf.adlog.place(x=925, y=100)
-        sf.abt = Button(sf.loginf1, text="About Us", bg="#0b1335", cursor="hand2", bd=4, fg="white",
-                        font=("cooper black", 16))
+        sf.abt = Button(sf.loginf1, text="ABOUT US", bg="#0b1335", cursor="hand2", bd=0, fg="white",
+                        font=("Montserrat Bold", 13), relief=SUNKEN, padx=12, pady=1, justify=CENTER)
         sf.abt.config(command=lambda: sf.about())
         sf.abt.place(x=1210, y=100)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.tim = Label(sf.loginf1, text=sf.localtime, fg="white", font=("default", 16), bg="#0b1335")
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+        sf.tim = Label(sf.loginf1, fg="white", font=("default", 16), bg="#0b1335")
         sf.tim.place(x=925, y=50)
+        time()
+
         sf.loginf1.pack(fill=BOTH, expand=1)
         sf.loginf2 = Frame(sf.scr, height=618, width=1366)
         sf.c = Canvas(sf.loginf2, height=618, width=1366)
@@ -116,86 +121,36 @@ class Burger:
         sf.L.pack()
         sf.scr1.mainloop()
 
-    # --  page 3------
-    def Adminlogin(sf):
-        sf.scr.destroy()
-        sf.scr = Tk()
-        sf.scr.title("BURGER ISLAND")
-        sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
-        sf.adminf1 = Frame(sf.scr, height=150, width=1366)
-        sf.c = Canvas(sf.adminf1, height=150, width=1366)
-        sf.c.pack()
-        sf.logo = PhotoImage(file="logo.PNG")
-        sf.c.create_image(683, 75, image=sf.logo)
-        sf.home = Button(sf.adminf1, text="Home", command=lambda: sf.main(), bg="#0b1335", cursor="hand2", fg="white",
-                         bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.c.create_text(1000, 50, text=sf.localtime, fill="white", font=("default", 16))
-        sf.adminf1.pack(fill=BOTH, expand=1)
-        sf.adminf2 = Frame(sf.scr, height=618, width=1366)
-
-        sf.c = Canvas(sf.adminf2, height=618, width=1366)
-        sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
-        sf.c.create_rectangle(350, 100, 1016, 450, fill="#d3ede6", outline="white", width=6)
-        sf.log = Label(sf.adminf2, text="ADMIN LOGIN", fg="white", bg="#0b1335", width=27, font=("cooper black", 27))
-        sf.log.place(x=357, y=110)
-        sf.lab1 = Label(sf.adminf2, text="UserName", bg="#d3ede6", font=("cooper black", 22))
-        sf.lab1.place(x=400, y=200)
-        sf.usera = Entry(sf.adminf2, bg="white", font=("cooper black", 22), bd=5)
-        sf.usera.place(x=650, y=200)
-        sf.lab2 = Label(sf.adminf2, text="Password", bg="#d3ede6", font=("cooper black", 22))
-        sf.lab2.place(x=405, y=270)
-        sf.pasda = Entry(sf.adminf2, show = "*", bg="white", font=("cooper black", 22), bd=5)
-        sf.pasda.place(x=650, y=270)
-        sf.lg = Button(sf.adminf2, text="Login", cursor="hand2", fg="white", bg="#0b1335",
-                       command=lambda: sf.admindatabase(), font=("copper black", 20, 'bold'), bd=5)
-        sf.lg.place(x=650, y=350)
-        sf.cl = Button(sf.adminf2, text="Back", cursor="hand2", fg="white", bg="#0b1335", command=lambda: sf.Login(),
-                       font=("copper black", 20, 'bold'), bd=5)
-        sf.cl.place(x=400, y=350)
-
-        def clear(sf):
-            sf.usera.delete(0, END)
-            sf.pasda.delete(0, END)
-
-        sf.rg = Button(sf.adminf2, text="Clear", fg="white", cursor="hand2", bg="#0b1335", command=lambda: clear(sf),
-                       bd=5, font=("copper black", 20, 'bold'))
-        sf.rg.place(x=900, y=350)
-
-        sf.adminf2.pack(fill=BOTH, expand=1)
-        sf.scr.mainloop()
-
     def resultadmin(sf):
         sf.loguser = sf.usera.get()
         sf.logpass = sf.pasda.get()
         return sf.loguser, sf.logpass
 
-    # --  page 4------
+    # --  page 3------
     def Register(sf):
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.regf1 = Frame(sf.scr, height=150, width=1366)
         sf.logo = PhotoImage(file="logo.PNG")
         sf.ba = Label(sf.regf1, image=sf.logo, height=150).place(x=0, y=0)
         sf.home = Button(sf.regf1, text="Home", command=lambda: sf.main(), bg="#0b1335", cursor="hand2", fg="white",
                          font=("default", 16))
         sf.home.place(x=800, y=100)
-        sf.adlog = Button(sf.regf1, text="Administrator Login", command=lambda: sf.Adminlogin(), cursor="hand2",
-                          bg="#0b1335", fg="white", font=("default", 16))
-        sf.adlog.place(x=950, y=100)
         sf.abt = Button(sf.regf1, text="About Us", command=lambda: sf.about(), bg="#0b1335", cursor="hand2", fg="white",
                         font=("default", 16))
         sf.abt.place(x=1210, y=100)
-        sf.localtime = time.asctime(time.localtime(time.time()))
-        sf.tim = Label(sf.regf1, text=sf.localtime, fg="white", font=("default", 16), bg="#0b1335")
+        def time():
+            string = strftime('%I:%M:%S %p')
+            sf.tim.config(text=string)
+            sf.tim.after(1000, time)
+        sf.tim = Label(sf.regf1, fg="white", font=("default", 16), bg="#0b1335")
         sf.tim.place(x=925, y=50)
+        time()
+
         sf.regf1.pack(fill=BOTH, expand=1)
 
         sf.regf2 = Frame(sf.scr, height=618, width=1366)
@@ -260,14 +215,15 @@ class Burger:
         sf.Mob = sf.mob.get()
         return sf.reguser, sf.regpasd, sf.firstname, sf.lastname, sf.Email, sf.Mob
 
-    # --  page 5------
+    # --  page 4------
     def adminmain(sf):
         sf.scr.destroy()
         sf.scr = Tk()
         # sf.scr.config(bg="#f2e8b8")
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.admainf1 = Frame(sf.scr, bg="#f2e8b8", height=150, width=1366)
         sf.admainf1.pack(side=TOP, fill=BOTH)
         sf.c = Canvas(sf.admainf1, height=150, bg="#f2e8b8", width=1366)
@@ -278,12 +234,12 @@ class Burger:
         sf.c.create_text(900, 50, text=sf.localtime, fill="white", font=("default", 16))
         sf.c.create_text(683, 125, font=('Cooper Black', 25, 'bold', 'underline'), text="Management System")
         sf.c.create_text(900, 80, text="WELCOME, OM KHULBE", fill="white", font=("default", 20))
-        sf.out = Button(sf.admainf1, text="Log Out", bg="#0b1335", cursor="hand2", command=lambda: sf.Adminlogin(),
+        sf.out = Button(sf.admainf1, text="Log Out", bg="#0b1335", cursor="hand2", command=lambda: sf.Login(),
                         fg="white", bd=5, font=("default", 16, 'bold'))
         sf.out.place(x=1100, y=25)
 
         def Ref(sf):
-            sf.con = connect("pizza.db")
+            sf.con = connect("burger.db")
             ##            sf.x=random.randint(100, 500)
             ##            sf.randomRef = str(sf.x)
             sf.cur = sf.con.cursor()
@@ -362,19 +318,19 @@ class Burger:
 
             sf.costofmeal = "Rs.", str('%.2f' % (
                     sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14))
-            sf.PayTax = ((
-                                 sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14) * .05)
+            sf.sgst = ((
+                                 sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14) * .025)
             sf.Totalcost = (
                     sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14)
-            sf.Ser_Charge = ((
-                                     sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14) / 99)
-            sf.Service = "Rs." + str('%.2f' % sf.Ser_Charge)
-            sf.OverAllCost = "Rs." + str(int(sf.PayTax + sf.Totalcost + sf.Ser_Charge))
-            sf.PaidTax = "Rs." + str('%.2f' % sf.PayTax)
-            sf.money = int(sf.PayTax + sf.Totalcost + sf.Ser_Charge)
-            sf.Service_Charge.set(sf.Service)
+            sf.cgst = ((
+                                     sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14) * .025)
+            sf.central = "Rs." + str('%.2f' % sf.cgst)
+            sf.OverAllCost = "Rs." + str(int(sf.sgst + sf.Totalcost + sf.cgst))
+            sf.state = "Rs." + str('%.2f' % sf.sgst)
+            sf.money = int(sf.sgst + sf.Totalcost + sf.cgst)
+            sf.centralgst.set(sf.central)
             sf.cost.set(sf.costofmeal)
-            sf.Tax.set(sf.PaidTax)
+            sf.stategst.set(sf.state)
             sf.Total.set(sf.OverAllCost)
 
         def reset(sf):
@@ -393,8 +349,8 @@ class Burger:
             sf.Chicken_Meatballs.set("0")
             sf.Boneles_sChicken.set("0")
             sf.Total.set("0")
-            sf.Service_Charge.set("0")
-            sf.Tax.set("0")
+            sf.centralgst.set("0")
+            sf.stategst.set("0")
             sf.cost.set("0")
             sf.order.set("0")
             sf.Cutomer_name.set("")
@@ -504,8 +460,8 @@ class Burger:
         sf.Chicken_Meatballs = StringVar()
         sf.Boneles_sChicken = StringVar()
         sf.Total = StringVar()
-        sf.Service_Charge = StringVar()
-        sf.Tax = StringVar()
+        sf.centralgst = StringVar()
+        sf.stategst = StringVar()
         sf.cost = StringVar()
         sf.order = StringVar()
         sf.Cutomer_name = StringVar()
@@ -746,19 +702,19 @@ class Burger:
                          bg="powder blue", justify='right')
         sf.txtco.grid(row=5, column=8)
 
-        sf.lblser = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Service Charge:", bg="#f2e8b8",
+        sf.lblser = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="CGST (2.5%):", bg="#f2e8b8",
                           fg="#7769ad", bd=6, anchor='w')
         sf.lblser.grid(row=6, column=7)
-        sf.txtser = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.Service_Charge, width=14, bd=6,
+        sf.txtcgst = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.centralgst, width=14, bd=6,
                           bg="powder blue", justify='right')
-        sf.txtser.grid(row=6, column=8)
+        sf.txtcgst.grid(row=6, column=8)
 
-        sf.lbltax = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Tax:", bg="#f2e8b8", fg="#7769ad", bd=6,
+        sf.lbltax = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="SGST (2.5%)", bg="#f2e8b8", fg="#7769ad", bd=6,
                           anchor='w')
         sf.lbltax.grid(row=7, column=7)
-        sf.txttax = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.Tax, bd=6, width=14,
+        sf.txtsgst = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.stategst, bd=6, width=14,
                           bg="powder blue", justify='right')
-        sf.txttax.grid(row=7, column=8)
+        sf.txtsgst.grid(row=7, column=8)
 
         sf.lbltot = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Total:", bg="#f2e8b8", fg="#7769ad",
                           bd=6, anchor='w')
@@ -842,14 +798,15 @@ class Burger:
 
         return r20, r21, l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14
 
-    # --  page 6------
+    # --  page 5------
     def menulist(sf, x):
         sf.x = x
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.menuf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.menuf1, height=150, width=1366)
         sf.c.pack()
@@ -891,13 +848,14 @@ class Burger:
         sf.menuf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
-    # --  page 7------
-    def pizmain(sf):
+    # --  page 6------
+    def burgmain(sf):
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.pizf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.pizf1, height=150, width=1366)
         sf.c.pack()
@@ -934,14 +892,15 @@ class Burger:
         sf.pizf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
-    # --  page 8------
+    # --  page 7------
     def vegburger(sf, x):
         sf.x = x
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.vegf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.vegf1, height=150, width=1366)
         sf.c.pack()
@@ -1128,9 +1087,6 @@ class Burger:
         sf.more.place(x=1050, y=350)
         sf.vegf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
-
-    ##----page 9 ------
-
     def addlist(sf, q):
         if q[-2] != "0" and q[-2].isdigit():
             sf.cartlist.append(q)
@@ -1140,14 +1096,15 @@ class Burger:
             messagebox.showinfo("Cart", "Enter Valid Quantity to add")
         print(sf.cartlist, sf.amount)
 
-    # --  page 10------
+    # --  page 8------
     def nonvegburger(sf, x):
         sf.x = x
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.nonvegf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.nonvegf1, height=150, width=1366)
         sf.c.pack()
@@ -1333,14 +1290,15 @@ class Burger:
         sf.nonvegf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
-    # --  page 11------
+    # --  page 9------
     def SpecialChi(sf, x):
         sf.x = x
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.spef1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.spef1, height=150, width=1366)
         sf.c.pack()
@@ -1421,14 +1379,15 @@ class Burger:
         sf.spef2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
-    # --  page 12------
+    # --  page 10------
     def sidebev(sf, x):
         sf.x = x
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.sidef1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.sidef1, height=150, width=1366)
         sf.c.pack()
@@ -1507,14 +1466,15 @@ class Burger:
         sf.sidef2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
-    # --  page 13------
+    # --  page 11------
     def Address(sf, x):
         sf.x = x
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.addf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.addf1, height=150, width=1366)
         sf.c.pack()
@@ -1573,14 +1533,15 @@ class Burger:
         sf.addf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
-    # --  page 14------
+    # --  page 12------
     def Orderde(sf, x):
         sf.x = x
         sf.scr.destroy()
         sf.scr = Tk()
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
-        # sf.scr.resizable(False, False)
+        sf.scr.resizable(False, False)
+        sf.scr.iconbitmap('burger.ico')
         sf.ordf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.ordf1, height=150, width=1366)
         sf.c.pack()
@@ -1645,8 +1606,15 @@ class Burger:
                 messagebox.showinfo("Login", "You are Not Registered Yet")
 
         else:
-            messagebox.showinfo("Login", "You have Successfully Log In\nWelcome to the Burger Island")
-            sf.pizmain()
+            y = sf.cur.execute(
+                "select admin from customer where username=%r and password=%r" % (sf.credlog[0], sf.credlog[1]))
+            for admin in y:
+                if list(admin)[0] == 1:
+                    messagebox.showinfo("Login", "You have Successfully Logged In\n\nWelcome to the Burger Island Admin")
+                    sf.adminmain()
+                else:
+                    messagebox.showinfo("Login", "You have Successfully Log In\nWelcome to the Burger Island")
+                    sf.burgmain()
 
     def Regdatabase(sf):
         sf.credreg = sf.resultreg()
@@ -1664,8 +1632,8 @@ class Burger:
                 5] == "":
                 messagebox.showinfo("Register", "Empty Entry is not Allowed(except Email)")
             else:
-                sf.cur.execute("insert into customer values(%r,%r,%r,%r,%r,%r)" % (
-                    sf.credreg[0], sf.credreg[1], sf.credreg[2], sf.credreg[3], sf.credreg[4], sf.credreg[5]))
+                sf.cur.execute("insert into customer values(%r,%r,%r,%r,%r,%r,%r)" % (
+                    sf.credreg[0], sf.credreg[1], sf.credreg[2], sf.credreg[3], sf.credreg[4], sf.credreg[5], 0))
                 sf.con.commit()
                 messagebox.showinfo("Register", "You are Successfully Registered")
                 sf.Login()
