@@ -5,6 +5,7 @@ from sqlite3 import *
 import random
 from tkinter import messagebox
 from cryptography.fernet import Fernet
+import customtkinter
 
 
 class Burger:
@@ -31,7 +32,7 @@ class Burger:
         sf.scr.iconbitmap(file)
         sf.loginf1 = Frame(sf.scr, height=150, width=1366)
         sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
-        sf.ba = Label(sf.loginf1, image=sf.logo, height=150).place(x=0, y=0)
+        sf.ba = Label(sf.loginf1, image=sf.logo, height=150).place(x=-2, y=0)
         #sf.abt = Button(sf.loginf1, text="ABOUT US", bg="#0b1335", cursor="hand2", bd=0, fg="white",
         #                font=("Montserrat Bold", 13), relief=SUNKEN, padx=12, pady=1, justify=CENTER)
         #sf.abt.config(command=lambda: sf.about())
@@ -52,37 +53,41 @@ class Burger:
         sf.loginf2 = Frame(sf.scr, height=618, width=1366)
         sf.c = Canvas(sf.loginf2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="Images/Assets/burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
-        sf.c.create_rectangle(50, 100, 700, 450, fill="#d3ede6", outline="white", width=6)
-        sf.log = Label(sf.loginf2, text="LOGIN", fg="white", bg="#0b1335", width=26, font=("cooper black", 27))
-        sf.log.place(x=59, y=105)
-        sf.lab1 = Label(sf.loginf2, text="UserName", bg="#d3ede6", font=("cooper black", 22))
-        sf.lab1.place(x=100, y=180)
-        sf.user = Entry(sf.loginf2, bg="white", font=("cooper black", 22), bd=6, justify='left')
-        sf.user.place(x=320, y=180)
-        sf.lab2 = Label(sf.loginf2, text="Password", bg="#d3ede6", font=("cooper black", 22))
-        sf.lab2.place(x=105, y=250)
-        sf.pasd = Entry(sf.loginf2, bg="white", show = "*", font=("cooper black", 22), bd=6, justify='left')
-        sf.pasd.place(x=320, y=250)
-        sf.lg = Button(sf.loginf2, text="Login", cursor="hand2", command=lambda: sf.logindatabase(), fg="white",
-                       bg="#0b1335", font=("cooper black", 20), bd=4)
-        sf.lg.place(x=180, y=320)
+        sf.logo1 = PhotoImage(file="Images/Assets/burglog.png")
+        sf.mal = Label(sf.loginf2, image=sf.logo1, height=618).place(x=-2, y=0)
 
+        sf.lab1 = Label(sf.loginf2, text="Username", bg="#fdcb7a", font=("Montserrat ExtraBold", 20))
+        sf.lab1.place(x=120, y=265)
+        sf.user = Entry(sf.loginf2, bg="white", font=("Poppins", 13), bd=0, justify='left', width=30)
+        sf.user.place(x=360, y=271)
+        sf.lab2 = Label(sf.loginf2, text="Password", bg="#fdcb7a", font=("Montserrat ExtraBold", 20))
+        sf.lab2.place(x=120, y=358)
+        sf.pasd = Entry(sf.loginf2, bg="white", show="*", font=("Poppins", 13), bd=0, justify='left', width=30)
+        sf.pasd.place(x=360, y=364)
+        sf.lg = Button(sf.loginf2, cursor="hand2", command=lambda: sf.logindatabase(), fg="white",
+                       bg="#fdcb7a", font=("cooper black", 20), bd=0)
+        sf.lg.place(x=130, y=470)
+        sf.lgimg = PhotoImage(file="Images/Buttons/logbutton.png")
+        sf.lg.config(image=sf.lgimg)
+        sf.scr.bind('<Return>', lambda event: sf.logindatabase())
         def clear(sf):
             sf.user.delete(0, END)
             sf.pasd.delete(0, END)
 
-        sf.cl = Button(sf.loginf2, text="Clear", cursor="hand2", command=lambda: clear(sf), fg="white", bg="#0b1335",
-                       font=("cooper black", 20), bd=4)
-        sf.cl.place(x=450, y=320)
-        sf.rg = Button(sf.loginf2, text="New to Burger Island", command=lambda: sf.Register(), fg="white",
-                       cursor="hand2", bg="#8c68c1", font=("cooper black", 20), bd=6)
-        sf.rg.place(x=200, y=390)
-        sf.c.create_rectangle(850, 120, 1310, 480, fill="#d3ede6", outline="white", width=4)
-        sf.ext = PhotoImage(file="p4.png")
-        sf.url = Label(sf.loginf2, image=sf.ext, cursor="hand2").place(x=855, y=125)
+        sf.cl = Button(sf.loginf2, cursor="hand2", command=lambda: clear(sf), bg="#fdcb7a", bd=0)
+        sf.cl.place(x=330, y=470)
+        sf.climg = PhotoImage(file="Images/Buttons/clear.png")
+        sf.cl.config(image=sf.climg)
+
+        sf.rg = Button(sf.loginf2, command=lambda: sf.Register(), cursor="hand2", bg="#fdcb7a", bd=0)
+        sf.rg.place(x=530, y=470)
+        sf.rgimg = PhotoImage(file="Images/Buttons/register.png")
+        sf.rg.config(image=sf.rgimg)
+
+        sf.ext = PhotoImage(file="Images/Offers/ad1.png")
+        sf.url = Label(sf.loginf2, image=sf.ext, cursor="hand2", bg="#fdcb7a").place(x=900, y=140)
         sf.loginf2.pack(fill=BOTH, expand=1)
+
         sf.scr.mainloop()
 
     def resultlog(sf):
