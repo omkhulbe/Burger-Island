@@ -1,8 +1,8 @@
 from tkinter import *
-import time
 from time import strftime
 from sqlite3 import *
 import random
+import os
 from tkinter import messagebox
 from cryptography.fernet import Fernet
 import customtkinter
@@ -83,8 +83,10 @@ class Burger:
         sf.rg.place(x=530, y=470)
         sf.rgimg = PhotoImage(file="Images/Buttons/register.png")
         sf.rg.config(image=sf.rgimg)
-
-        sf.ext = PhotoImage(file="Images/Offers/ad1.png")
+        extpath = "Images\\Offers"
+        files = os.listdir(extpath)
+        d = random.choice(files)
+        sf.ext = PhotoImage(file="Images/Offers/" + d)
         sf.url = Label(sf.loginf2, image=sf.ext, cursor="hand2", bg="#fdcb7a").place(x=900, y=140)
         sf.loginf2.pack(fill=BOTH, expand=1)
 
