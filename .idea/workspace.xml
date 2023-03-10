@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fea30a8-b2f8-4568-be45-f1a3f392b545" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/omkhu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/omkhu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Assets/burgermain.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/burger.py" beforeDir="false" afterPath="$PROJECT_DIR$/burger.py" afterDir="false" />
-    </list>
+    <list default="true" id="9fea30a8-b2f8-4568-be45-f1a3f392b545" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +196,7 @@
       <workItem from="1678278012009" duration="12518000" />
       <workItem from="1678342066023" duration="6988000" />
       <workItem from="1678352998803" duration="1351000" />
-      <workItem from="1678434369361" duration="4358000" />
+      <workItem from="1678434369361" duration="4993000" />
     </task>
     <servers />
   </component>
