@@ -33,10 +33,11 @@ class Burger:
         sf.loginf1 = Frame(sf.scr, height=150, width=1366)
         sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
         sf.ba = Label(sf.loginf1, image=sf.logo, height=150).place(x=-2, y=0)
-        #sf.abt = Button(sf.loginf1, text="ABOUT US", bg="#0b1335", cursor="hand2", bd=0, fg="white",
+
+        # sf.abt = Button(sf.loginf1, text="ABOUT US", bg="#0b1335", cursor="hand2", bd=0, fg="white",
         #                font=("Montserrat Bold", 13), relief=SUNKEN, padx=12, pady=1, justify=CENTER)
-        #sf.abt.config(command=lambda: sf.about())
-        #sf.abt.place(x=1210, y=100)
+        # sf.abt.config(command=lambda: sf.about())
+        # sf.abt.place(x=1210, y=100)
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -64,25 +65,26 @@ class Burger:
         sf.lab2.place(x=120, y=358)
         sf.pasd = Entry(sf.loginf2, bg="white", show="*", font=("Poppins", 13), bd=0, justify='left', width=30)
         sf.pasd.place(x=360, y=364)
-        sf.lg = Button(sf.loginf2, cursor="hand2", command=lambda: sf.logindatabase(), fg="white",
-                       bg="#fdcb7a", font=("cooper black", 20), bd=0)
-        sf.lg.place(x=130, y=470)
+        sf.lg = Button(sf.loginf2, cursor="hand2", command=lambda: sf.logindatabase(), bg="#fdcb7a", bd=0)
+        sf.lg.place(x=185, y=460)
         sf.lgimg = PhotoImage(file="Images/Buttons/logbutton.png")
         sf.lg.config(image=sf.lgimg)
         sf.scr.bind('<Return>', lambda event: sf.logindatabase())
+
         def clear(sf):
             sf.user.delete(0, END)
             sf.pasd.delete(0, END)
 
         sf.cl = Button(sf.loginf2, cursor="hand2", command=lambda: clear(sf), bg="#fdcb7a", bd=0)
-        sf.cl.place(x=330, y=470)
+        sf.cl.place(x=465, y=460)
         sf.climg = PhotoImage(file="Images/Buttons/clear.png")
         sf.cl.config(image=sf.climg)
 
         sf.rg = Button(sf.loginf2, command=lambda: sf.Register(), cursor="hand2", bg="#fdcb7a", bd=0)
-        sf.rg.place(x=530, y=470)
+        sf.rg.place(x=-40, y=583)
         sf.rgimg = PhotoImage(file="Images/Buttons/register.png")
         sf.rg.config(image=sf.rgimg)
+
         extpath = "Images\\Offers"
         files = os.listdir(extpath)
         d = random.choice(files)
@@ -141,7 +143,7 @@ class Burger:
         sf.regf2 = Frame(sf.scr, height=618, width=1366)
         sf.c = Canvas(sf.regf2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
+        sf.logo1 = PhotoImage(file="Images/Assets/burgermain.png")
         sf.c.create_image(683, 309, image=sf.logo1)
         sf.c.create_rectangle(150, 100, 1216, 450, fill="#d3ede6", outline="white", width=6)
         sf.log = Label(sf.regf2, text="REGISTRATION", fg="white", bg="#0b1335", width=20, font=("cooper black", 27))
@@ -160,7 +162,7 @@ class Burger:
         sf.usern.place(x=430, y=250)
         sf.lab4 = Label(sf.regf2, text="Password", bg="#d3ede6", font=("cooper black", 18))
         sf.lab4.place(x=730, y=250)
-        sf.passd = Entry(sf.regf2, show = "*", bg="white", width=15, font=("cooper black", 18), bd=5)
+        sf.passd = Entry(sf.regf2, show="*", bg="white", width=15, font=("cooper black", 18), bd=5)
         sf.passd.place(x=920, y=250)
         sf.lab5 = Label(sf.regf2, text="Email", bg="#d3ede6", font=("cooper black", 18))
         sf.lab5.place(x=190, y=300)
@@ -204,18 +206,15 @@ class Burger:
     def adminmain(sf):
         sf.scr.destroy()
         sf.scr = Tk()
-        # sf.scr.config(bg="#f2e8b8")
         sf.scr.title("Burger Island")
         sf.scr.geometry("1366x768+80+10")
         sf.scr.resizable(False, False)
         file = "Images/Assets/burger.ico"
         sf.scr.iconbitmap(file)
-        sf.admainf1 = Frame(sf.scr, bg="#f2e8b8", height=150, width=1366)
-        sf.admainf1.pack(side=TOP, fill=BOTH)
-        sf.c = Canvas(sf.admainf1, height=150, bg="#f2e8b8", width=1366)
-        sf.c.pack()
+        sf.admainf1 = Frame(sf.scr, bg="#fdcb7a", height=150, width=1366)
         sf.logo = PhotoImage(file="Images/Assets/logo.png")
-        sf.c.create_image(683, 75, image=sf.logo)
+        sf.ba = Label(sf.admainf1, image=sf.logo, height=150).place(x=-2, y=0)
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -227,10 +226,7 @@ class Burger:
         sf.tim = Label(sf.admainf1, fg="black", font=("Montserrat ExtraBold", 13), bg="white")
         sf.tim.place(x=1040, y=95)
         time()
-
-        '''''sf.out = Button(sf.admainf1, text="Log Out", bg="#0b1335", cursor="hand2", command=lambda: sf.Login(),
-                        fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.out.place(x=1100, y=25)'''''
+        sf.admainf1.pack(fill=BOTH)
 
         def Ref(sf):
             sf.con = connect("burger.db")
@@ -313,11 +309,11 @@ class Burger:
             sf.costofmeal = "Rs.", str('%.2f' % (
                     sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14))
             sf.sgst = ((
-                                 sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14) * .025)
+                               sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14) * .025)
             sf.Totalcost = (
                     sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14)
             sf.cgst = ((
-                                     sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14) * .025)
+                               sf.p1 + sf.p2 + sf.p3 + sf.p4 + sf.p5 + sf.p6 + sf.p7 + sf.p8 + sf.p9 + sf.p10 + sf.p11 + sf.p12 + sf.p13 + sf.p14) * .025)
             sf.central = "Rs." + str('%.2f' % sf.cgst)
             sf.OverAllCost = "Rs." + str(int(sf.sgst + sf.Totalcost + sf.cgst))
             sf.state = "Rs." + str('%.2f' % sf.sgst)
@@ -437,8 +433,9 @@ class Burger:
 
             sf.roo.mainloop()
 
-        sf.admainf2 = Frame(sf.scr, width=1366, bg="#f2e8b8", height=618, relief=SUNKEN)
-        sf.admainf2.pack(side=BOTTOM, fill=BOTH, expand=1)
+        sf.admainf2 = Frame(sf.scr, width=1366, height=618)
+        sf.logo1 = PhotoImage(file="Images/Assets/burgermain.png")
+        sf.mal = Label(sf.admainf2, image=sf.logo1, height=618).place(x=-2, y=0)
         sf.aloo_tikki = StringVar()
         sf.cheese_burger = StringVar()
         sf.mushroom = StringVar()
@@ -472,266 +469,270 @@ class Burger:
         sf.l = ["Medium", "Large", "Regular"]
 
         # veg burger
-        sf.non = Label(sf.admainf2, pady=2, text=(" "), font=('Cooper Black', 20), bg="#f2e8b8", bd=10, anchor='w')
-        sf.non.grid(row=0, column=1)
-        sf.lbl1 = Label(sf.admainf2, pady=2, font=('Cooper Black', 20, 'bold', 'underline'), bg="#f2e8b8",
-                        text="Veg Burger", bd=10, anchor='w')
-        sf.lbl1.place(x=180, y=0)
-        sf.lbl11 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=6, bg="#f2e8b8",
+        sf.lbl1 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 17, 'bold'), bg="#fdcb7a",
+                        text="VEG BURGER", fg="#22aa00", bd=10, anchor='w')
+        sf.lbl1.place(x=170, y=10)
+        sf.lbl11 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=6, bg="#fdcb7a",
                          text="Items", bd=6, anchor='w')
-        sf.lbl11.grid(row=1, column=0)
-        sf.lbl12 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=7, bg="#f2e8b8",
+        sf.lbl11.place(x=80, y=60)
+        sf.lbl12 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=7, bg="#fdcb7a",
                          text="Size", bd=6, anchor='w')
-        sf.lbl12.grid(row=1, column=1)
-        sf.lbl13 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=8, bg="#f2e8b8",
+        sf.lbl12.place(x=260, y=60)
+        sf.lbl13 = Label(sf.admainf2, font=('Montserrat ExtraBold', 14), width=8, bg="#fdcb7a",
                          text="Quantity", bd=6, anchor='w')
-        sf.lbl13.grid(row=1, column=2, padx=4)
+        sf.lbl13.place(x=360, y=60)
 
-        sf.lblalt = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Aloo Tikki:", bg="#f2e8b8",
+        sf.lblalt = Label(sf.admainf2, font=('Poppins', 14, 'bold'), text="Aloo Tikki:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblalt.grid(row=2, column=0)
+        sf.lblalt.place(x=80, y=105)
         sf.opalt = OptionMenu(sf.admainf2, sf.vp1, *sf.l)
         sf.opalt.config(width=6)
-        sf.opalt.grid(row=2, column=1)
-        sf.txtalt = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.aloo_tikki, bd=6, width=4,
-                          bg="powder blue", justify='right')
-        sf.txtalt.grid(row=2, column=2)
+        sf.opalt.place(x=265, y=110)
+        sf.txtalt = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.aloo_tikki, bd=2, width=4,
+                          bg="white", justify='right')
+        sf.txtalt.place(x=400, y=110)
 
-        sf.lblchbr = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Cheese Veg:", bg="#f2e8b8",
+        sf.lblchbr = Label(sf.admainf2, font=('Poppins', 14, 'bold'), text="Cheese:", bg="#fdcb7a",
                            fg="#7769ad", bd=6, anchor='w')
-        sf.lblchbr.grid(row=3, column=0)
+        sf.lblchbr.place(x=80, y=145)
         sf.opchbr = OptionMenu(sf.admainf2, sf.vp2, *sf.l)
         sf.opchbr.config(width=6)
-        sf.opchbr.grid(row=3, column=1)
-        sf.txtchbr = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.cheese_burger, bd=6, width=4,
-                           bg="powder blue", justify='right')
-        sf.txtchbr.grid(row=3, column=2)
+        sf.opchbr.place(x=265, y=150)
+        sf.txtchbr = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.cheese_burger, bd=2, width=4,
+                           bg="white", justify='right')
+        sf.txtchbr.place(x=400, y=150)
 
-        sf.lblmus = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Mushroom:", bg="#f2e8b8", fg="#7769ad",
+        sf.lblmus = Label(sf.admainf2, font=('Poppins', 14, 'bold'), text="Mushroom:", bg="#fdcb7a", fg="#7769ad",
                           bd=6, anchor='w')
-        sf.lblmus.grid(row=4, column=0)
+        sf.lblmus.place(x=80, y=185)
         sf.opmus = OptionMenu(sf.admainf2, sf.vp3, *sf.l)
         sf.opmus.config(width=6)
-        sf.opmus.grid(row=4, column=1)
-        sf.txtmus = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.mushroom, bd=6, width=4,
-                          bg="powder blue", justify='right')
-        sf.txtmus.grid(row=4, column=2)
+        sf.opmus.place(x=265, y=190)
+        sf.txtmus = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.mushroom, bd=2, width=4,
+                          bg="white", justify='right')
+        sf.txtmus.place(x=400, y=190)
 
-        sf.lblcom = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Combo:", bg="#f2e8b8",
+        sf.lblcom = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="Combo:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblcom.grid(row=5, column=0)
+        sf.lblcom.place(x=80, y=225)
         sf.opcom = OptionMenu(sf.admainf2, sf.vp4, *sf.l)
         sf.opcom.config(width=6)
-        sf.opcom.grid(row=5, column=1)
-        sf.txtcom = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.combo, width=4,
-                          bg="powder blue", bd=6, justify='right')
-        sf.txtcom.grid(row=5, column=2)
+        sf.opcom.place(x=265, y=230)
+        sf.txtcom = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.combo, width=4,
+                          bg="white", bd=2, justify='right')
+        sf.txtcom.place(x=400, y=230)
 
         # sf.non veg
-        sf.non = Label(sf.admainf2, pady=2, text=(" "), font=('Cooper Black', 20), bg="#f2e8b8", bd=10, anchor='w')
-        sf.non.grid(row=6, column=1)
-        sf.lbl2 = Label(sf.admainf2, pady=2, font=('Cooper Black', 20, 'bold', 'underline'), bg="#f2e8b8",
-                        text="Non-Veg Burger", bd=10, anchor='w')
-        sf.lbl2.place(x=150, y=290)
-        sf.lbl21 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=6, bg="#f2e8b8",
-                         text="Items", bd=6, anchor='w')
-        sf.lbl21.grid(row=7, column=0)
-        sf.lbl22 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=7, bg="#f2e8b8",
-                         text="Size", bd=6, anchor='w')
-        sf.lbl22.grid(row=7, column=1)
-        sf.lbl23 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=8, bg="#f2e8b8",
-                         text="Quantity", bd=6, anchor='w')
-        sf.lbl23.grid(row=7, column=2)
 
-        sf.lblckn = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Chicken:", bg="#f2e8b8",
+        sf.lbl2 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 17, 'bold'), bg="#fdcb7a",
+                        text="NON-VEG BURGER", fg="brown", bd=10, anchor='w')
+        sf.lbl2.place(x=140, y=300)
+        sf.lbl21 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=6, bg="#fdcb7a",
+                         text="Items", bd=6, anchor='w')
+        sf.lbl21.place(x=80, y=350)
+        sf.lbl22 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=7, bg="#fdcb7a",
+                         text="Size", bd=6, anchor='w')
+        sf.lbl22.place(x=260, y=350)
+        sf.lbl23 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=8, bg="#fdcb7a",
+                         text="Quantity", bd=6, anchor='w')
+        sf.lbl23.place(x=360, y=350)
+
+        sf.lblckn = Label(sf.admainf2, pady=0, font=('Poppins', 14, 'bold'), text="Chicken:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblckn.grid(row=8, column=0)
+        sf.lblckn.place(x=80, y=395)
         sf.opckn = OptionMenu(sf.admainf2, sf.vp5, *sf.l)
         sf.opckn.config(width=6)
-        sf.opckn.grid(row=8, column=1)
-        sf.txtckn = Entry(sf.admainf2, width=4, font=('ariel', 16, 'bold'), textvariable=sf.chicken, bd=6,
-                          bg="powder blue", justify='right')
-        sf.txtckn.grid(row=8, column=2)
+        sf.opckn.place(x=265, y=400)
+        sf.txtckn = Entry(sf.admainf2, width=4, font=('ariel', 14, 'bold'), textvariable=sf.chicken, bd=2,
+                          bg="white", justify='right')
+        sf.txtckn.place(x=400, y=400)
 
-        sf.lblckcr = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Chicken Crispy:", bg="#f2e8b8",
+        sf.lblckcr = Label(sf.admainf2, pady=0, font=('Poppins', 14, 'bold'), text="Chicken Crispy:", bg="#fdcb7a",
                            fg="#7769ad", bd=6, anchor='w')
-        sf.lblckcr.grid(row=9, column=0)
+        sf.lblckcr.place(x=80, y=435)
         sf.opckcr = OptionMenu(sf.admainf2, sf.vp6, *sf.l)
         sf.opckcr.config(width=6)
-        sf.opckcr.grid(row=9, column=1)
-        sf.txtckcr = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.chicken_crispy, bd=6, width=4,
-                           bg="powder blue", justify='right')
-        sf.txtckcr.grid(row=9, column=2)
+        sf.opckcr.place(x=265, y=440)
+        sf.txtckcr = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.chicken_crispy, bd=2, width=4,
+                           bg="white", justify='right')
+        sf.txtckcr.place(x=400, y=440)
 
-        sf.lblckwh = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Chicken Whooper:", bg="#f2e8b8",
+        sf.lblckwh = Label(sf.admainf2, pady=0, font=('Poppins', 14, 'bold'), text="Chicken Whooper:", bg="#fdcb7a",
                            fg="#7769ad", bd=6, anchor='w')
-        sf.lblckwh.grid(row=10, column=0)
+        sf.lblckwh.place(x=80, y=475)
         sf.opckwh = OptionMenu(sf.admainf2, sf.vp7, *sf.l)
         sf.opckwh.config(width=6)
-        sf.opckwh.grid(row=10, column=1)
-        sf.txtckwh = Entry(sf.admainf2, width=4, font=('ariel', 16, 'bold'), textvariable=sf.chicken_whooper, bd=6,
-                           bg="powder blue", justify='right')
-        sf.txtckwh.grid(row=10, column=2)
+        sf.opckwh.place(x=265, y=480)
+        sf.txtckwh = Entry(sf.admainf2, width=4, font=('ariel', 14, 'bold'), textvariable=sf.chicken_whooper, bd=2,
+                           bg="white", justify='right')
+        sf.txtckwh.place(x=400, y=480)
 
-        sf.lblchch = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Chicken Cheese:", bg="#f2e8b8",
+        sf.lblchch = Label(sf.admainf2, pady=0, font=('Poppins', 14, 'bold'), text="Chicken Cheese:", bg="#fdcb7a",
                            fg="#7769ad", bd=6, anchor='w')
-        sf.lblchch.grid(row=11, column=0)
+        sf.lblchch.place(x=80, y=515)
         sf.opchch = OptionMenu(sf.admainf2, sf.vp8, *sf.l)
         sf.opchch.config(width=6)
-        sf.opchch.grid(row=11, column=1)
-        sf.txtchch = Entry(sf.admainf2, font=('ariel', 16, 'bold'), width=4, textvariable=sf.chicken_cheese, bd=6,
-                           bg="powder blue", justify='right')
-        sf.txtchch.grid(row=11, column=2)
+        sf.opchch.place(x=265, y=520)
+        sf.txtchch = Entry(sf.admainf2, font=('ariel', 14, 'bold'), width=4, textvariable=sf.chicken_cheese, bd=2,
+                           bg="white", justify='right')
+        sf.txtchch.place(x=400, y=520)
 
         # Special
-        sf.non = Label(sf.admainf2, pady=2, text=(" "), font=('Cooper Black', 20), bg="#f2e8b8", bd=10, anchor='w')
-        sf.non.grid(row=0, column=5)
-        sf.lbl3 = Label(sf.admainf2, pady=2, font=('Cooper Black', 20, 'bold', 'underline'), bg="#f2e8b8",
-                        text="Specialty", bd=10, anchor='w')
-        sf.lbl3.place(x=550, y=0)
-        sf.lbl31 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=6, bg="#f2e8b8",
+        sf.lbl3 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 17), bg="#fdcb7a",
+                        text="SPECIALTY", fg="brown", bd=10, anchor='w')
+        sf.lbl3.place(x=630, y=10)
+        sf.lbl31 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=6, bg="#fdcb7a",
                          text="Items", bd=6, anchor='w')
-        sf.lbl31.grid(row=1, column=4)
-        sf.lbl33 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=8, bg="#f2e8b8",
+        sf.lbl31.place(x=550, y=60)
+        sf.lbl33 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=8, bg="#fdcb7a",
                          text="Quantity", bd=6, anchor='w')
-        sf.lbl33.grid(row=1, column=5)
+        sf.lbl33.place(x=780, y=60)
 
-        sf.lblros = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Roasted Chicken:", bg="#f2e8b8",
+        sf.lblros = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="Roasted Chicken:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblros.grid(row=2, column=4)
-        sf.txtros = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.Roasted_Chicken, bd=6, width=4,
-                          bg="powder blue", justify='right')
-        sf.txtros.grid(row=2, column=5)
+        sf.lblros.place(x=550, y=105)
+        sf.txtros = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.Roasted_Chicken, bd=2, width=4,
+                          bg="white", justify='right')
+        sf.txtros.place(x=820, y=110)
 
-        sf.lblmeat = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Chicken Meatballs:", bg="#f2e8b8",
+        sf.lblmeat = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="Chicken Meatballs:", bg="#fdcb7a",
                            fg="#7769ad", bd=6, anchor='w')
-        sf.lblmeat.grid(row=3, column=4)
-        sf.txtmeat = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.Chicken_Meatballs, bd=6, width=4,
-                           bg="powder blue", justify='right')
-        sf.txtmeat.grid(row=3, column=5)
+        sf.lblmeat.place(x=550, y=145)
+        sf.txtmeat = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.Chicken_Meatballs, bd=2, width=4,
+                           bg="white", justify='right')
+        sf.txtmeat.place(x=820, y=150)
 
-        sf.lblbon = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Boneless Chicken:", bg="#f2e8b8",
+        sf.lblbon = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="Boneless Chicken:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblbon.grid(row=4, column=4)
-        sf.txtbon = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.Boneles_sChicken, bd=6, width=4,
-                          bg="powder blue", justify='right')
-        sf.txtbon.grid(row=4, column=5)
+        sf.lblbon.place(x=550, y=185)
+        sf.txtbon = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.Boneles_sChicken, bd=2, width=4,
+                          bg="white", justify='right')
+        sf.txtbon.place(x=820, y=190)
 
         # Sides
-        sf.non = Label(sf.admainf2, pady=2, text=(" "), font=('Cooper Black', 20), bg="#f2e8b8", bd=10, anchor='w')
-        sf.non.grid(row=6, column=4)
-        sf.lbl4 = Label(sf.admainf2, pady=2, font=('Cooper Black', 20, 'bold', 'underline'), bg="#f2e8b8",
-                        text="Sides & Beverages", bd=10, anchor='w')
-        sf.lbl4.place(x=500, y=290)
-        sf.lbl41 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=6, bg="#f2e8b8",
+        sf.lbl4 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 17, 'bold'), bg="#fdcb7a",
+                        text="SIDES", fg="#22aa00", bd=10, anchor='w')
+        sf.lbl4.place(x=660, y=300)
+        sf.lbl41 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=6, bg="#fdcb7a",
                          text="Items", bd=6, anchor='w')
-        sf.lbl41.grid(row=7, column=4)
-        sf.lbl43 = Label(sf.admainf2, pady=2, font=('Cooper Black', 16, 'underline'), width=8, bg="#f2e8b8",
+        sf.lbl41.place(x=550, y=350)
+        sf.lbl43 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 14), width=8, bg="#fdcb7a",
                          text="Quantity", bd=6, anchor='w')
-        sf.lbl43.grid(row=7, column=5)
+        sf.lbl43.place(x=780, y=350)
 
-        sf.lblcok = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Coke Mobile:", bg="#f2e8b8",
+        sf.lblcok = Label(sf.admainf2, pady=0, font=('Poppins', 14, 'bold'), text="Coke Mobile:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblcok.grid(row=8, column=4)
-        sf.txtcok = Entry(sf.admainf2, width=4, font=('ariel', 16, 'bold'), textvariable=sf.Coke_Mobile, bd=6,
-                          bg="powder blue", justify='right')
-        sf.txtcok.grid(row=8, column=5)
+        sf.lblcok.place(x=550, y=395)
+        sf.txtcok = Entry(sf.admainf2, width=4, font=('ariel', 14, 'bold'), textvariable=sf.Coke_Mobile, bd=2,
+                          bg="white", justify='right')
+        sf.txtcok.place(x=820, y=400)
 
-        sf.lblbur = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Burger Pizza:", bg="#f2e8b8",
+        sf.lblbur = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="Burger Pizza:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblbur.grid(row=9, column=4)
-        sf.txtbur = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.Burger_Pizza, bd=6, width=4,
-                          bg="powder blue", justify='right')
-        sf.txtbur.grid(row=9, column=5)
+        sf.lblbur.place(x=550, y=435)
+        sf.txtbur = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.Burger_Pizza, bd=2, width=4,
+                          bg="white", justify='right')
+        sf.txtbur.place(x=820, y=440)
 
-        sf.lblpas = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="White Pasta:", bg="#f2e8b8",
+        sf.lblpas = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="White Pasta:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblpas.grid(row=10, column=4)
-        sf.txtpas = Entry(sf.admainf2, width=4, font=('ariel', 16, 'bold'), textvariable=sf.White_Pasta, bd=6,
-                          bg="powder blue", justify='right')
-        sf.txtpas.grid(row=10, column=5)
+        sf.lblpas.place(x=550, y=475)
+        sf.txtpas = Entry(sf.admainf2, width=4, font=('ariel', 14, 'bold'), textvariable=sf.White_Pasta, bd=2,
+                          bg="white", justify='right')
+        sf.txtpas.place(x=820, y=480)
 
         # customer
-        sf.non = Label(sf.admainf2, pady=2, text=(" "), font=('Cooper Black', 20), bg="#f2e8b8", bd=10, anchor='w')
-        sf.non.grid(row=0, column=8)
-        sf.lbl6 = Label(sf.admainf2, pady=2, font=('Cooper Black', 22, 'bold', 'underline'), bg="#f2e8b8",
-                        text="Customer Detail", bd=10, anchor='w')
-        sf.lbl6.place(x=970, y=0)
+        sf.lbl6 = Label(sf.admainf2, pady=2, font=('Montserrat ExtraBold', 17, 'bold'), bg="#fdcb7a",
+                        text="CUSTOMER DETAILS", fg="#22aa00", bd=10, anchor='w')
+        sf.lbl6.place(x=995, y=10)
 
-        sf.lblnam = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), width=10, text="    Name:", bg="#f2e8b8",
+        sf.lblnam = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), width=10, text="Name:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblnam.grid(row=1, column=7)
-        sf.txtnam = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.Cutomer_name, bd=6, width=14,
-                          bg="powder blue", justify='left')
-        sf.txtnam.grid(row=1, column=8)
+        sf.lblnam.place(x=965, y=75)
+        sf.txtnam = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.Cutomer_name, bd=2, width=16,
+                          bg="white", justify='left')
+        sf.txtnam.place(x=1105, y=85)
 
-        sf.lblmob = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Mobile No:", bg="#f2e8b8", fg="#7769ad",
+        sf.lblmob = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="Mobile No:", bg="#fdcb7a",
+                          fg="#7769ad",
                           bd=6, anchor='w')
-        sf.lblmob.grid(row=2, column=7)
-        sf.txtmob = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.cusmob, width=14, bd=6,
-                          bg="powder blue", justify='left')
-        sf.txtmob.grid(row=2, column=8)
+        sf.lblmob.place(x=965, y=115)
+        sf.txtmob = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.cusmob, width=16, bd=2,
+                          bg="white", justify='left')
+        sf.txtmob.place(x=1105, y=125)
 
         # bill
-        sf.non = Label(sf.admainf2, pady=2, text=(" "), font=('Cooper Black', 20), bg="#f2e8b8", bd=10, anchor='w')
-        sf.non.grid(row=3, column=8)
-        sf.lbl5 = Label(sf.admainf2, pady=2, font=('Cooper Black', 22, 'bold', 'underline'), bg="#f2e8b8",
-                        text="Bill Payment", bd=10, anchor='w')
-        sf.lbl5.place(x=1000, y=140)
+        sf.lbl5 = Label(sf.admainf2, pady=0, font=('Montserrat ExtraBold', 17, 'bold'), bg="#fdcb7a",
+                        text="BILL PAYMENT", fg="brown", bd=10, anchor='w')
+        sf.lbl5.place(x=1030, y=170)
 
-        sf.non = Label(sf.admainf2, pady=2, text=(" "), font=('Cooper Black', 20), width=5, bg="#f2e8b8", bd=10,
-                       anchor='w')
-        sf.non.grid(row=4, column=6)
-        sf.lblord = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), width=10, text="    Order No:", bg="#f2e8b8",
+        sf.lblord = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), width=10, text="Order No:", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblord.grid(row=4, column=7)
-        sf.txtord = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.order, bd=6, width=14,
-                          bg="powder blue", justify='right')
-        sf.txtord.grid(row=4, column=8)
+        sf.lblord.place(x=965, y=235)
+        sf.txtord = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.order, bd=2, width=16,
+                          bg="white", justify='right')
+        sf.txtord.place(x=1105, y=245)
 
-        sf.lblco = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Subtotal:", bg="#f2e8b8", fg="#7769ad",
+        sf.lblco = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="Subtotal:", bg="#fdcb7a",
+                         fg="#7769ad",
                          bd=6, anchor='w')
-        sf.lblco.grid(row=5, column=7)
-        sf.txtco = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.cost, width=14, bd=6,
-                         bg="powder blue", justify='right')
-        sf.txtco.grid(row=5, column=8)
+        sf.lblco.place(x=965, y=275)
+        sf.txtco = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.cost, width=16, bd=2,
+                         bg="white", justify='right')
+        sf.txtco.place(x=1105, y=285)
 
-        sf.lblser = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="CGST (2.5%):", bg="#f2e8b8",
+        sf.lblser = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="CGST (2.5%):", bg="#fdcb7a",
                           fg="#7769ad", bd=6, anchor='w')
-        sf.lblser.grid(row=6, column=7)
-        sf.txtcgst = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.centralgst, width=14, bd=6,
-                          bg="powder blue", justify='right')
-        sf.txtcgst.grid(row=6, column=8)
+        sf.lblser.place(x=965, y=315)
+        sf.txtcgst = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.centralgst, width=16, bd=2,
+                           bg="white", justify='right')
+        sf.txtcgst.place(x=1105, y=325)
 
-        sf.lbltax = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="SGST (2.5%)", bg="#f2e8b8", fg="#7769ad", bd=6,
+        sf.lbltax = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="SGST (2.5%):", bg="#fdcb7a",
+                          fg="#7769ad", bd=6,
                           anchor='w')
-        sf.lbltax.grid(row=7, column=7)
-        sf.txtsgst = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.stategst, bd=6, width=14,
-                          bg="powder blue", justify='right')
-        sf.txtsgst.grid(row=7, column=8)
+        sf.lbltax.place(x=965, y=355)
+        sf.txtsgst = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.stategst, bd=2, width=16,
+                           bg="white", justify='right')
+        sf.txtsgst.place(x=1105, y=365)
 
-        sf.lbltot = Label(sf.admainf2, pady=2, font=('aria', 16, 'bold'), text="Total:", bg="#f2e8b8", fg="#7769ad",
+        sf.lbltot = Label(sf.admainf2, pady=2, font=('Poppins', 14, 'bold'), text="Total:", bg="#fdcb7a", fg="#7769ad",
                           bd=6, anchor='w')
-        sf.lbltot.grid(row=8, column=7)
-        sf.txttot = Entry(sf.admainf2, font=('ariel', 16, 'bold'), textvariable=sf.Total, bd=6, width=14,
-                          bg="powder blue", justify='right')
-        sf.txttot.grid(row=8, column=8)
+        sf.lbltot.place(x=965, y=395)
+        sf.txttot = Entry(sf.admainf2, font=('ariel', 14, 'bold'), textvariable=sf.Total, bd=2, width=16,
+                          bg="white", justify='right')
+        sf.txttot.place(x=1105, y=405)
 
-        sf.btnprice = Button(sf.admainf2, pady=2, bd=6, fg="black", font=('ariel', 16, 'bold'), width=6, text="PRICE",
-                             bg="powder blue", command=lambda: price(sf))
-        sf.btnprice.place(x=970, y=440)
+        sf.btnprice = Button(sf.admainf2, pady=0, bd=0, bg="#fdcb7a", command=lambda: price(sf))
+        sf.btnpriceimg = PhotoImage(file="Images/Buttons/pricebutton.png")
+        sf.btnprice.config(image=sf.btnpriceimg)
+        sf.btnprice.place(x=990, y=470)
 
-        sf.btnTotal = Button(sf.admainf2, pady=2, bd=6, fg="black", font=('ariel', 16, 'bold'), width=6, text="TOTAL",
-                             bg="powder blue", command=lambda: Ref(sf))
-        sf.btnTotal.place(x=1160, y=440)
+        sf.btnTotal = Button(sf.admainf2, pady=0, bd=0, text="TOTAL", bg="#fdcb7a", command=lambda: Ref(sf))
+        sf.btnTotalimg = PhotoImage(file="Images/Buttons/totalbutton.png")
+        sf.btnTotal.config(image=sf.btnTotalimg)
+        sf.btnTotal.place(x=1150, y=470)
 
-        sf.btnreset = Button(sf.admainf2, pady=2, bd=6, fg="black", font=('ariel', 16, 'bold'), width=6, text="RESET",
-                             bg="powder blue", command=lambda: reset(sf))
-        sf.btnreset.place(x=970, y=500)
+        sf.btnreset = Button(sf.admainf2, pady=0, bd=0, text="RESET", bg="#fdcb7a", command=lambda: reset(sf))
+        sf.btnresetimg = PhotoImage(file="Images/Buttons/resetbutton.png")
+        sf.btnreset.config(image=sf.btnresetimg)
+        sf.btnreset.place(x=990, y=540)
 
-        sf.btnpay = Button(sf.admainf2, pady=2, bd=6, fg="black", font=('ariel', 16, 'bold'), width=6, text="PAY",
-                           bg="powder blue", command=lambda: sf.adminorderdetail())
-        sf.btnpay.place(x=1160, y=500)
+        sf.btnpay = Button(sf.admainf2, pady=0, bd=0, text="PAY", bg="#fdcb7a", command=lambda: sf.adminorderdetail())
+        sf.btnpayimg = PhotoImage(file="Images/Buttons/paybutton.png")
+        sf.btnpay.config(image=sf.btnpayimg)
+        sf.btnpay.place(x=1150, y=540)
+
+        def logout():
+            sf.akyn = messagebox.askyesno("Are you sure?", "Are you sure want to log out?")
+            if sf.akyn:
+                sf.Login()
+
+        sf.out = Button(sf.admainf2, bg="#fdcb7a", cursor="hand2", command=lambda: logout(), bd=0)
+        sf.out.place(x=85, y=563)
+        sf.outimg = PhotoImage(file="Images/Buttons/logoutbutton.png")
+        sf.out.config(image=sf.outimg)
+        sf.admainf2.pack(fill=BOTH, expand=1)
 
         sf.scr.mainloop()
 
@@ -810,6 +811,7 @@ class Burger:
         ''''sf.home = Button(sf.menuf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
                          fg="white", bd=5, font=("default", 16, 'bold'))
         sf.home.place(x=1000, y=90)'''''
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -873,6 +875,7 @@ class Burger:
         ''''sf.out = Button(sf.pizf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                         font=("default", 16))
         sf.out.place(x=1200, y=100)'''''
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -926,6 +929,7 @@ class Burger:
         ''''sf.home = Button(sf.vegf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                          bd=5, font=("default", 16, 'bold'))
         sf.home.place(x=1000, y=90)'''''
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -1114,6 +1118,7 @@ class Burger:
         sf.more.place(x=1050, y=350)
         sf.vegf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
+
     def addlist(sf, q):
         if q[-2] != "0" and q[-2].isdigit():
             sf.cartlist.append(q)
@@ -1141,6 +1146,7 @@ class Burger:
         ''''sf.home = Button(sf.nonvegf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
                          fg="white", bd=5, font=("default", 16, 'bold'))
         sf.home.place(x=1000, y=90)'''''
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -1346,6 +1352,7 @@ class Burger:
         ''''sf.home = Button(sf.spef1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                          bd=5, font=("default", 16, 'bold'))
         sf.home.place(x=1000, y=90)'''''
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -1545,6 +1552,7 @@ class Burger:
         ''''sf.out = Button(sf.addf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                         font=("default", 16))
         sf.out.place(x=1200, y=100)'''''
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -1625,6 +1633,7 @@ class Burger:
         ''''sf.home = Button(sf.ordf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
                          bd=5, font=("default", 16, 'bold'))
         sf.home.place(x=1000, y=90)'''''
+
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -1695,7 +1704,8 @@ class Burger:
                 "select admin from customer where username=%r and password=%r" % (sf.credlog[0], sf.credlog[1]))
             for admin in y:
                 if list(admin)[0] == 1:
-                    messagebox.showinfo("Login", "You have Successfully Logged In\n\nWelcome to the Burger Island Admin")
+                    messagebox.showinfo("Login",
+                                        "You have Successfully Logged In\n\nWelcome to the Burger Island Admin")
                     sf.adminmain()
                 else:
                     messagebox.showinfo("Login", "You have Successfully Log In\nWelcome to the Burger Island")
@@ -1724,22 +1734,6 @@ class Burger:
                 sf.Login()
         else:
             messagebox.showinfo("Register", "Username Already Exist \nEnter New Username")
-
-    def admindatabase(sf):
-        sf.credadm = sf.resultadmin()
-        sf.con = connect("burger.db")
-        sf.cur = sf.con.cursor()
-        x = sf.cur.execute(
-            "select count(*) from admin where username=%r and password=%r" % (sf.credadm[0], sf.credadm[1]))
-        if list(x)[0][0] == 0:
-            if sf.credadm[0] == "" or sf.credadm[1] == "":
-                messagebox.showinfo("Admin", "Empty Entry is not allowed")
-            else:
-                messagebox.showinfo("Admin", "You are Not Registered Yet")
-
-        else:
-            messagebox.showinfo("Admin", "You have Successfully Log In")
-            sf.adminmain()
 
     def adminorderdetail(sf):
         sf.credadmord = sf.resultadminorder()

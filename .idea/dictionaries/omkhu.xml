@@ -1,8 +1,19 @@
 <component name="ProjectDictionaryState">
   <dictionary name="omkhu">
     <words>
+      <w>addch</w>
+      <w>adminmain</w>
+      <w>akyn</w>
+      <w>aloo</w>
       <w>burgmain</w>
+      <w>extpath</w>
       <w>logbutton</w>
+      <w>logoutbutton</w>
+      <w>paybutton</w>
+      <w>pricebutton</w>
+      <w>resetbutton</w>
+      <w>resultreg</w>
+      <w>totalbutton</w>
     </words>
   </dictionary>
 </component>
