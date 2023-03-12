@@ -66,7 +66,7 @@ class Burger:
         sf.pasd = Entry(sf.loginf2, bg="white", show="*", font=("Poppins", 13), bd=0, justify='left', width=30)
         sf.pasd.place(x=360, y=364)
         sf.lg = Button(sf.loginf2, cursor="hand2", command=lambda: sf.logindatabase(), bg="#fdcb7a", bd=0)
-        sf.lg.place(x=185, y=460)
+        sf.lg.place(x=185, y=480)
         sf.lgimg = PhotoImage(file="Images/Buttons/logbutton.png")
         sf.lg.config(image=sf.lgimg)
         sf.scr.bind('<Return>', lambda event: sf.logindatabase())
@@ -76,12 +76,12 @@ class Burger:
             sf.pasd.delete(0, END)
 
         sf.cl = Button(sf.loginf2, cursor="hand2", command=lambda: clear(sf), bg="#fdcb7a", bd=0)
-        sf.cl.place(x=465, y=460)
+        sf.cl.place(x=465, y=480)
         sf.climg = PhotoImage(file="Images/Buttons/clear.png")
         sf.cl.config(image=sf.climg)
 
         sf.rg = Button(sf.loginf2, command=lambda: sf.Register(), cursor="hand2", bg="#fdcb7a", bd=0)
-        sf.rg.place(x=-40, y=583)
+        sf.rg.place(x=1000, y=510)
         sf.rgimg = PhotoImage(file="Images/Buttons/register.png")
         sf.rg.config(image=sf.rgimg)
 
