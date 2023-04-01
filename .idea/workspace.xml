@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fea30a8-b2f8-4568-be45-f1a3f392b545" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/burger.db" beforeDir="false" afterPath="$PROJECT_DIR$/burger.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/burger.py" beforeDir="false" afterPath="$PROJECT_DIR$/burger.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +35,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/omkhu/PycharmProjects/Burger-Island&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -203,7 +206,13 @@
       <workItem from="1678538941520" duration="1998000" />
       <workItem from="1678595552701" duration="5843000" />
       <workItem from="1678601835915" duration="766000" />
-      <workItem from="1678636118290" duration="10661000" />
+      <workItem from="1678636118290" duration="11259000" />
+      <workItem from="1678871721496" duration="723000" />
+      <workItem from="1679507716057" duration="299000" />
+      <workItem from="1679508165804" duration="318000" />
+      <workItem from="1679509507452" duration="1222000" />
+      <workItem from="1680298349496" duration="10576000" />
+      <workItem from="1680314183721" duration="5870000" />
     </task>
     <servers />
   </component>
@@ -222,6 +231,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Burger_Island$burger.coverage" NAME="burger Coverage Results" MODIFIED="1678647081280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Burger_Island$burger.coverage" NAME="burger Coverage Results" MODIFIED="1680319997049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

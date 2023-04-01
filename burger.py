@@ -124,7 +124,7 @@ class Burger:
         sf.scr.iconbitmap(file)
         sf.regf1 = Frame(sf.scr, height=150, width=1366)
         sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
-        sf.ba = Label(sf.regf1, image=sf.logo, height=150).place(x=0, y=0)
+        sf.ba = Label(sf.regf1, image=sf.logo, height=150).place(x=-2, y=0)
 
         def time():
             string = strftime('%I:%M:%S %p')
@@ -144,40 +144,40 @@ class Burger:
         sf.c = Canvas(sf.regf2, height=618, width=1366)
         sf.c.pack()
         sf.logo1 = PhotoImage(file="Images/Assets/burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
+        sf.mal = Label(sf.regf2, image=sf.logo1, height=618).place(x=-2, y=0)
         sf.c.create_rectangle(150, 100, 1216, 450, fill="#d3ede6", outline="white", width=6)
-        sf.log = Label(sf.regf2, text="REGISTRATION", fg="white", bg="#0b1335", width=20, font=("cooper black", 27))
-        sf.log.place(x=480, y=120)
-        sf.lab1 = Label(sf.regf2, text="FirstName", bg="#d3ede6", font=("cooper black", 18))
-        sf.lab1.place(x=190, y=200)
-        sf.first = Entry(sf.regf2, bg="white", width=15, font=("cooper black", 18), bd=5)
-        sf.first.place(x=430, y=200)
-        sf.lab2 = Label(sf.regf2, text="LastName", bg="#d3ede6", font=("cooper black", 18))
-        sf.lab2.place(x=730, y=200)
-        sf.last = Entry(sf.regf2, bg="white", width=15, font=("cooper black", 18), bd=5)
-        sf.last.place(x=920, y=200)
-        sf.lab3 = Label(sf.regf2, text="Username", bg="#d3ede6", font=("cooper black", 18))
-        sf.lab3.place(x=190, y=250)
-        sf.usern = Entry(sf.regf2, bg="white", width=15, font=("cooper black", 18), bd=5)
-        sf.usern.place(x=430, y=250)
-        sf.lab4 = Label(sf.regf2, text="Password", bg="#d3ede6", font=("cooper black", 18))
-        sf.lab4.place(x=730, y=250)
-        sf.passd = Entry(sf.regf2, show="*", bg="white", width=15, font=("cooper black", 18), bd=5)
-        sf.passd.place(x=920, y=250)
-        sf.lab5 = Label(sf.regf2, text="Email", bg="#d3ede6", font=("cooper black", 18))
-        sf.lab5.place(x=190, y=300)
-        sf.email = Entry(sf.regf2, bg="white", width=15, font=("cooper black", 18), bd=5)
-        sf.email.place(x=430, y=300)
-        sf.lab6 = Label(sf.regf2, text="Mobile No.", bg="#d3ede6", font=("cooper black", 18))
-        sf.lab6.place(x=730, y=300)
-        sf.mob = Entry(sf.regf2, bg="white", width=15, font=("cooper black", 18), bd=5)
-        sf.mob.place(x=920, y=300)
-        sf.bc = Button(sf.regf2, text="Back", cursor="hand2", command=lambda: sf.Login(), fg="white", bg="#0b1335",
-                       font=("cooper black", 18), bd=5)
-        sf.bc.place(x=370, y=370)
-        sf.rg = Button(sf.regf2, text="Register", cursor="hand2", fg="white", bg="#0b1335",
-                       command=lambda: sf.Regdatabase(), font=("cooper black", 18), bd=5)
-        sf.rg.place(x=610, y=370)
+        sf.log = Label(sf.regf2, text="REGISTRATION", fg="white", bg="#fdcb7a", width=20, font=("Montserrat ExtraBold", 35, 'bold'))
+        sf.log.place(x=370, y=90)
+        sf.lab1 = Label(sf.regf2, text="First Name:", bg="#fdcb7a", font=("Montserrat ExtraBold", 18))
+        sf.lab1.place(x=190, y=220)
+        sf.first = Entry(sf.regf2, bg="white", width=22, font=("Poppins", 13), bd=1)
+        sf.first.place(x=430, y=220)
+        sf.lab2 = Label(sf.regf2, text="Last Name:", bg="#fdcb7a", font=("Montserrat ExtraBold", 18))
+        sf.lab2.place(x=730, y=220)
+        sf.last = Entry(sf.regf2, bg="white", width=22, font=("Poppins", 13), bd=1)
+        sf.last.place(x=920, y=220)
+        sf.lab3 = Label(sf.regf2, text="Username:", bg="#fdcb7a", font=("Montserrat ExtraBold", 18))
+        sf.lab3.place(x=190, y=290)
+        sf.usern = Entry(sf.regf2, bg="white", width=22, font=("Poppins", 13), bd=1)
+        sf.usern.place(x=430, y=290)
+        sf.lab4 = Label(sf.regf2, text="Password:", bg="#fdcb7a", font=("Montserrat ExtraBold", 18))
+        sf.lab4.place(x=730, y=290)
+        sf.passd = Entry(sf.regf2, show="*", bg="white", width=22, font=("Poppins", 13), bd=1)
+        sf.passd.place(x=920, y=290)
+        sf.lab5 = Label(sf.regf2, text="Email:", bg="#fdcb7a", font=("Montserrat ExtraBold", 18))
+        sf.lab5.place(x=190, y=360)
+        sf.email = Entry(sf.regf2, bg="white", width=22, font=("Poppins", 13), bd=1)
+        sf.email.place(x=430, y=360)
+        sf.lab6 = Label(sf.regf2, text="Mobile No.:", bg="#fdcb7a", font=("Montserrat ExtraBold", 18))
+        sf.lab6.place(x=730, y=360)
+        sf.mob = Entry(sf.regf2, bg="white", width=22, font=("Poppins", 13), bd=1)
+        sf.mob.place(x=920, y=360)
+        sf.bc = Button(sf.regf2, text="BACK", cursor="hand2", command=lambda: sf.Login(), fg="white", bg="#FF9A03",
+                       font=("Montserrat ExtraBold", 16), bd=3)
+        sf.bc.place(x=370, y=480)
+        sf.rg = Button(sf.regf2, text="REGISTER", cursor="hand2", fg="white", bg="#FF9A03",
+                       command=lambda: sf.Regdatabase(), font=("Montserrat ExtraBold", 16), bd=3)
+        sf.rg.place(x=610, y=480)
 
         def clear(sf):
             sf.usern.delete(0, END)
@@ -187,9 +187,9 @@ class Burger:
             sf.email.delete(0, END)
             sf.mob.delete(0, END)
 
-        sf.cl = Button(sf.regf2, text="Clear", cursor="hand2", fg="white", bg="#0b1335", command=lambda: clear(sf),
-                       font=("cooper black", 18), bd=5)
-        sf.cl.place(x=910, y=370)
+        sf.cl = Button(sf.regf2, text="CLEAR", cursor="hand2", fg="white", bg="#FF9A03", command=lambda: clear(sf),
+                       font=("Montserrat ExtraBold", 16), bd=3)
+        sf.cl.place(x=910, y=480)
         sf.regf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
@@ -804,13 +804,8 @@ class Burger:
         file = "Images/Assets/burger.ico"
         sf.scr.iconbitmap(file)
         sf.menuf1 = Frame(sf.scr, height=150, width=1366)
-        sf.c = Canvas(sf.menuf1, height=150, width=1366)
-        sf.c.pack()
-        sf.logo = PhotoImage(file="Images/Assets/logo.png")
-        sf.c.create_image(683, 75, image=sf.logo)
-        ''''sf.home = Button(sf.menuf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
-                         fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)'''''
+        sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
+        sf.ba = Label(sf.menuf1, image=sf.logo, height=150).place(x=-2, y=0)
 
         def time():
             string = strftime('%I:%M:%S %p')
@@ -829,29 +824,37 @@ class Burger:
         sf.menuf2 = Frame(sf.scr, height=618, width=1366)
         sf.c = Canvas(sf.menuf2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
-        sf.c.create_rectangle(50, 140, 1316, 420, fill="#d3ede6", outline="white", width=6)
-        sf.veg = PhotoImage(file="veg.png")
-        sf.c.create_image(230, 250, image=sf.veg)
-        sf.vegbut = Button(sf.menuf2, text="Veg Burger", cursor="hand2", fg="white", command=lambda: sf.vegburger(sf.x),
-                           bg="#0b1335", bd=5, font=("default", 18, 'bold'))
-        sf.vegbut.place(x=170, y=350)
-        sf.nonveg = PhotoImage(file="Non.png")
-        sf.c.create_image(530, 250, image=sf.nonveg)
-        sf.nonvegbut = Button(sf.menuf2, text="Non-Veg Burger", cursor="hand2", fg="white",
-                              command=lambda: sf.nonvegburger(sf.x), bg="#0b1335", bd=5, font=("default", 18, 'bold'))
-        sf.nonvegbut.place(x=440, y=350)
-        sf.chi = PhotoImage(file="chiken.png")
-        sf.c.create_image(830, 250, image=sf.chi)
-        sf.chibut = Button(sf.menuf2, text="Special Chicken", cursor="hand2", fg="white",
-                           command=lambda: sf.SpecialChi(sf.x), bg="#0b1335", bd=5, font=("default", 18, 'bold'))
-        sf.chibut.place(x=730, y=350)
-        sf.side = PhotoImage(file="extra.png")
-        sf.c.create_image(1130, 250, image=sf.side)
-        sf.sidebut = Button(sf.menuf2, text="Sides and Beverages", cursor="hand2", fg="white",
-                            command=lambda: sf.sidebev(sf.x), bg="#0b1335", bd=5, font=("default", 18, 'bold'))
-        sf.sidebut.place(x=1000, y=350)
+        sf.logo1 = PhotoImage(file="Images/Assets/var.png")
+        sf.mal = Label(sf.menuf2, image=sf.logo1, height=618).place(x=-2, y=-2)
+        sf.vgbt = Button(sf.menuf2, cursor="hand2", command=lambda: sf.vegburger(sf.x), bg="#fdcb7a", bd=0)
+        sf.vgbt.place(x=180, y=400)
+        sf.vgbtimg = PhotoImage(file="Images/Buttons/1.png")
+        sf.vgbt.config(image=sf.vgbtimg)
+
+        sf.nvgbt = Button(sf.menuf2, cursor="hand2", command=lambda: sf.nonvegburger(sf.x), bg="#fdcb7a", bd=0)
+        sf.nvgbt.place(x=455, y=400)
+        sf.nvgbtimg = PhotoImage(file="Images/Buttons/2.png")
+        sf.nvgbt.config(image=sf.nvgbtimg)
+
+        sf.spbt = Button(sf.menuf2, cursor="hand2", command=lambda: sf.SpecialChi(sf.x), bg="#fdcb7a", bd=0)
+        sf.spbt.place(x=730, y=400)
+        sf.spbtimg = PhotoImage(file="Images/Buttons/3.png")
+        sf.spbt.config(image=sf.spbtimg)
+
+        sf.sdbt = Button(sf.menuf2, cursor="hand2", command=lambda: sf.sidebev(sf.x), bg="#fdcb7a", bd=0)
+        sf.sdbt.place(x=1005, y=400)
+        sf.sdbtimg = PhotoImage(file="Images/Buttons/4.png")
+        sf.sdbt.config(image=sf.sdbtimg)
+
+        def logout():
+            sf.akyn = messagebox.askyesno("Are you sure?", "Are you sure want to log out?")
+            if sf.akyn:
+                sf.Login()
+
+        sf.out = Button(sf.menuf2, bg="#fdcb7a", cursor="hand2", command=lambda: logout(), bd=0)
+        sf.out.place(x=10, y=580)
+        sf.outimg = PhotoImage(file="Images/Buttons/logoutbutton.png")
+        sf.out.config(image=sf.outimg)
         sf.menuf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
@@ -865,16 +868,8 @@ class Burger:
         file = "Images/Assets/burger.ico"
         sf.scr.iconbitmap(file)
         sf.pizf1 = Frame(sf.scr, height=150, width=1366)
-        sf.c = Canvas(sf.pizf1, height=150, width=1366)
-        sf.c.pack()
-        sf.logo = PhotoImage(file="Images/Assets/logo.png")
-        sf.c.create_image(683, 75, image=sf.logo)
-        sf.c.create_text(950, 80, text="WELCOME", fill="white", font=("default", 20))
-        sf.name = " USER"
-        sf.c.create_text(950, 120, text=sf.name, fill="white", font=("default", 18))
-        ''''sf.out = Button(sf.pizf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
-                        font=("default", 16))
-        sf.out.place(x=1200, y=100)'''''
+        sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
+        sf.ba = Label(sf.pizf1, image=sf.logo, height=150).place(x=-2, y=0)
 
         def time():
             string = strftime('%I:%M:%S %p')
@@ -893,21 +888,27 @@ class Burger:
         sf.pizf2 = Frame(sf.scr, height=618, width=1366)
         sf.c = Canvas(sf.pizf2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
-        sf.c.create_rectangle(400, 120, 966, 470, fill="#d3ede6", outline="white", width=2)
-        sf.deli = PhotoImage(file="delivery.png")
-        sf.c.create_image(540, 260, image=sf.deli)
-        sf.pic = PhotoImage(file="pick.png")
-        sf.c.create_image(825, 260, image=sf.pic)
-        sf.de = Button(sf.pizf2, text="Delivery", cursor="hand2", fg="white", command=lambda: sf.menulist("deli"),
-                       bg="#0b1335", font=("default", 20), bd=5)
-        sf.de.place(x=480, y=400)
-        sf.pu = Button(sf.pizf2, text="Pick Up", cursor="hand2", fg="white", command=lambda: sf.menulist("pick"),
-                       bg="#0b1335", font=("default", 20), bd=5)
-        sf.pu.place(x=770, y=400)
-        sf.c.create_rectangle(405, 125, 678, 465, outline="black", width=2)
-        sf.c.create_rectangle(688, 125, 960, 465, outline="black", width=2)
+        sf.logo1 = PhotoImage(file="Images/Assets/del.png")
+        sf.mal = Label(sf.pizf2, image=sf.logo1, height=618).place(x=-2, y=-2)
+
+        sf.de = Button(sf.pizf2, cursor="hand2", fg="white", command=lambda: sf.menulist("deli"),
+                       bg="#fdcb7a", bd=0)
+        sf.de.place(x=400, y=390)
+        sf.deimg = PhotoImage(file="Images/Buttons/5.png")
+        sf.de.config(image=sf.deimg)
+        sf.pu = Button(sf.pizf2, cursor="hand2", command=lambda: sf.menulist("pick"), bd=0)
+        sf.pu.place(x=810, y=390)
+        sf.puimg = PhotoImage(file="Images/Buttons/6.png")
+        sf.pu.config(image=sf.puimg)
+        def logout():
+            sf.akyn = messagebox.askyesno("Are you sure?", "Are you sure want to log out?")
+            if sf.akyn:
+                sf.Login()
+
+        sf.out = Button(sf.pizf2, bg="#fdcb7a", cursor="hand2", command=lambda: logout(), bd=0)
+        sf.out.place(x=10, y=580)
+        sf.outimg = PhotoImage(file="Images/Buttons/logoutbutton.png")
+        sf.out.config(image=sf.outimg)
         sf.pizf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
@@ -922,13 +923,8 @@ class Burger:
         file = "Images/Assets/burger.ico"
         sf.scr.iconbitmap(file)
         sf.vegf1 = Frame(sf.scr, height=150, width=1366)
-        sf.c = Canvas(sf.vegf1, height=150, width=1366)
-        sf.c.pack()
-        sf.logo = PhotoImage(file="Images/Assets/logo.png")
-        sf.c.create_image(683, 75, image=sf.logo)
-        ''''sf.home = Button(sf.vegf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
-                         bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)'''''
+        sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
+        sf.ba = Label(sf.vegf1, image=sf.logo, height=150).place(x=-2, y=0)
 
         def time():
             string = strftime('%I:%M:%S %p')
@@ -948,11 +944,8 @@ class Burger:
 
         sf.c = Canvas(sf.vegf2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
-        sf.log = Label(sf.vegf2, text="VEG BURGER", bg="#9db1f2", font=("Cooper Black", 22))
-        sf.log.place(x=600, y=4)
-        sf.c.create_rectangle(400, 40, 966, 540, fill="#d3ede6", outline="white", width=6)
+        sf.logo1 = PhotoImage(file="Images/Assets/5.png")
+        sf.mal = Label(sf.vegf2, image=sf.logo1, height=618).place(x=-2, y=0)
         sf.q1 = StringVar()
         sf.q2 = StringVar()
         sf.q3 = StringVar()
@@ -962,28 +955,26 @@ class Burger:
         sf.q3.set("0")
         sf.q4.set("0")
         # burger 1
-        sf.c.create_rectangle(405, 50, 960, 170, width=2)
-        sf.delu = PhotoImage(file="tikki.png")
-        sf.c.create_image(470, 110, image=sf.delu)
-        sf.c.create_text(650, 80, text="Aloo Tikki", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(860, 80, text="₹150/₹200/₹100", fill="#ff3838", font=("default", 17, 'bold'))
+        sf.labgh = Label(sf.vegf2, text="₹150/₹200/₹100", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labgh.place(x=350, y=200)
         # ch1=sf.check(sf.vegf2,100)
         sf.v1 = IntVar()
-        sf.C11 = Radiobutton(sf.vegf2, text="Medium", value=10, variable=sf.v1)
-        sf.C11.place(x=550, y=100)
-        sf.C12 = Radiobutton(sf.vegf2, text="Large", value=20, variable=sf.v1)
-        sf.C12.place(x=650, y=100)
-        sf.C13 = Radiobutton(sf.vegf2, text="Regular", value=30, variable=sf.v1)
-        sf.C13.place(x=750, y=100)
+        sf.C11 = Radiobutton(sf.vegf2, text="Medium", value=10, variable=sf.v1, bg="#febc56")
+        sf.C11.place(x=350, y=220)
+        sf.C12 = Radiobutton(sf.vegf2, text="Large", value=20, variable=sf.v1, bg="#febc56")
+        sf.C12.place(x=450, y=220)
+        sf.C13 = Radiobutton(sf.vegf2, text="Regular", value=30, variable=sf.v1, bg="#febc56")
+        sf.C13.place(x=550, y=220)
         sf.C11.select()
         sf.C11.deselect()
         sf.C11.invoke()
-        sf.c.create_text(590, 150, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty1 = Entry(sf.vegf2, textvariable=sf.q1, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty1.place(x=650, y=140)
-        sf.add1 = Button(sf.vegf2, text="ADD", command=lambda: addch1(), bg="#0b1335", cursor="hand2", fg="white", bd=4,
+        sf.labghi = Label(sf.vegf2, text="Quantity : ", bg="#febc56", fg="white", font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghi.place(x=355, y=245)
+        sf.qty1 = Entry(sf.vegf2, textvariable=sf.q1, bg="white", font=("default", 12), width=4, )
+        sf.qty1.place(x=455, y=245)
+        sf.add1 = Button(sf.vegf2, text="ADD", command=lambda: addch1(), bg="#FF9A03", cursor="hand2", fg="white", bd=4,
                          font=("default", 12, 'bold'))
-        sf.add1.place(x=850, y=120)
+        sf.add1.place(x=650, y=178)
 
         def addch1():
             if sf.v1.get() == 10:
@@ -998,28 +989,28 @@ class Burger:
             sf.addlist(["Aloo Tikki Burger", ch1, sf.q1.get(), pric1 * int(sf.q1.get())])
 
         # burger 2
-        sf.c.create_rectangle(405, 170, 960, 290, width=2)
-        sf.vag = PhotoImage(file="cheesy.png")
-        sf.c.create_image(470, 230, image=sf.vag)
-        sf.c.create_text(650, 200, text="Cheese", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(860, 200, text="₹350/₹500/₹200", fill="#ff3838", font=("default", 17, 'bold'))
+        sf.labkl = Label(sf.vegf2, text="₹350/₹500/₹200", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labkl.place(x=350, y=410)
         ##        ch2=sf.check(sf.vegf2,220)
         sf.v2 = IntVar()
-        sf.C21 = Radiobutton(sf.vegf2, text="Medium", value=10, variable=sf.v2)
-        sf.C21.place(x=550, y=220)
-        sf.C22 = Radiobutton(sf.vegf2, text="Large", value=20, variable=sf.v2)
-        sf.C22.place(x=650, y=220)
-        sf.C23 = Radiobutton(sf.vegf2, text="Regular", value=30, variable=sf.v2)
-        sf.C23.place(x=750, y=220)
+
+        sf.C21 = Radiobutton(sf.vegf2, text="Medium", value=10, variable=sf.v2, bg="#febc56")
+        sf.C21.place(x=350, y=430)
+        sf.C22 = Radiobutton(sf.vegf2, text="Large", value=20, variable=sf.v2, bg="#febc56")
+        sf.C22.place(x=450, y=430)
+        sf.C23 = Radiobutton(sf.vegf2, text="Regular", value=30, variable=sf.v2, bg="#febc56")
+        sf.C23.place(x=550, y=430)
         sf.C21.select()
         sf.C21.deselect()
         sf.C21.invoke()
-        sf.c.create_text(590, 270, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty2 = Entry(sf.vegf2, textvariable=sf.q2, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty2.place(x=650, y=260)
-        sf.add2 = Button(sf.vegf2, text="ADD", command=lambda: addch2(), bg="#0b1335", cursor="hand2", fg="white", bd=4,
+        sf.labghi = Label(sf.vegf2, text="Quantity : ", bg="#febc56", fg="white",
+                          font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghi.place(x=355, y=455)
+        sf.qty2 = Entry(sf.vegf2, textvariable=sf.q2, bg="white", font=("default", 12), width=4, )
+        sf.qty2.place(x=455, y=455)
+        sf.add2 = Button(sf.vegf2, text="ADD", command=lambda: addch2(), bg="#FF9A03", cursor="hand2", fg="white", bd=4,
                          font=("default", 12, 'bold'))
-        sf.add2.place(x=850, y=240)
+        sf.add2.place(x=650, y=378)
 
         def addch2():
             if sf.v2.get() == 10:
@@ -1035,30 +1026,29 @@ class Burger:
             sf.addlist(["Cheese Burger", ch2, sf.q2.get(), pric2 * int(sf.q2.get())])
 
         # burger 3
-        sf.c.create_rectangle(405, 290, 960, 410, width=2)
-        sf.pep = PhotoImage(file="mushroom.png")
-        sf.c.create_image(470, 350, image=sf.pep)
-        sf.c.create_text(650, 320, text="Mushroom", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(860, 320, text="₹385/₹550/₹225", fill="#ff3838", font=("default", 17, 'bold'))
+        sf.labgh = Label(sf.vegf2, text="₹385/₹550/₹225", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labgh.place(x=960, y=200)
         # ch3=sf.check(sf.vegf2,340)
         sf.v3 = IntVar()
-        sf.C31 = Radiobutton(sf.vegf2, text="Medium", value=10, variable=sf.v3)
-        sf.C31.place(x=550, y=340)
-        sf.C32 = Radiobutton(sf.vegf2, text="Large", value=20, variable=sf.v3)
-        sf.C32.place(x=650, y=340)
-        sf.C33 = Radiobutton(sf.vegf2, text="Regular", value=30, variable=sf.v3)
-        sf.C33.place(x=750, y=340)
+        sf.C31 = Radiobutton(sf.vegf2, text="Medium", value=10, variable=sf.v3, bg="#febc56")
+        sf.C31.place(x=960, y=220)
+        sf.C32 = Radiobutton(sf.vegf2, text="Large", value=20, variable=sf.v3, bg="#febc56")
+        sf.C32.place(x=1060, y=220)
+        sf.C33 = Radiobutton(sf.vegf2, text="Regular", value=30, variable=sf.v3, bg="#febc56")
+        sf.C33.place(x=1160, y=220)
         sf.C31.select()
         sf.C31.deselect()
         sf.C31.invoke()
 
-        sf.c.create_text(590, 390, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty3 = Entry(sf.vegf2, textvariable=sf.q3, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty3.place(x=650, y=380)
+        sf.labghij = Label(sf.vegf2, text="Quantity : ", bg="#febc56", fg="white",
+                          font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghij.place(x=965, y=245)
+        sf.qty3 = Entry(sf.vegf2, textvariable=sf.q3, bg="white", font=("default", 12), width=4, )
+        sf.qty3.place(x=1065, y=245)
 
-        sf.add3 = Button(sf.vegf2, text="ADD", command=lambda: addch3(), bg="#0b1335", cursor="hand2", fg="white", bd=4,
+        sf.add3 = Button(sf.vegf2, text="ADD", command=lambda: addch3(), bg="#FF9A03", cursor="hand2", fg="white", bd=4,
                          font=("default", 12, 'bold'))
-        sf.add3.place(x=850, y=360)
+        sf.add3.place(x=1220, y=173)
 
         def addch3():
             if sf.v3.get() == 10:
@@ -1073,30 +1063,29 @@ class Burger:
             sf.addlist(["Mushroom     ", ch3, sf.q3.get(), pric3 * int(sf.q3.get())])
 
         # burger 4
-        sf.c.create_rectangle(405, 410, 960, 530, width=2)
-        sf.mag = PhotoImage(file="combo.png")
-        sf.c.create_image(470, 470, image=sf.mag)
-        sf.c.create_text(650, 440, text="Combo", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(860, 440, text="₹295/₹485/₹199", fill="#ff3838", font=("default", 17, 'bold'))
+        sf.labghk = Label(sf.vegf2, text="₹295/₹485/₹199", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labghk.place(x=960, y=410)
         # ch4=sf.check(sf.vegf2,460)
         sf.v4 = IntVar()
-        sf.C41 = Radiobutton(sf.vegf2, text="Medium", value=10, variable=sf.v4)
-        sf.C41.place(x=550, y=460)
-        sf.C42 = Radiobutton(sf.vegf2, text="Large", value=20, variable=sf.v4)
-        sf.C42.place(x=650, y=460)
-        sf.C43 = Radiobutton(sf.vegf2, text="Regular", value=30, variable=sf.v4)
-        sf.C43.place(x=750, y=460)
+        sf.C41 = Radiobutton(sf.vegf2, text="Medium", value=10, variable=sf.v4, bg="#febc56")
+        sf.C41.place(x=980, y=430)
+        sf.C42 = Radiobutton(sf.vegf2, text="Large", value=20, variable=sf.v4, bg="#febc56")
+        sf.C42.place(x=1080, y=430)
+        sf.C43 = Radiobutton(sf.vegf2, text="Regular", value=30, variable=sf.v4, bg="#febc56")
+        sf.C43.place(x=1180, y=430)
         sf.C41.select()
         sf.C41.deselect()
         sf.C41.invoke()
 
-        sf.c.create_text(590, 500, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty4 = Entry(sf.vegf2, textvariable=sf.q4, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty4.place(x=650, y=500)
+        sf.labghij = Label(sf.vegf2, text="Quantity : ", bg="#febc56", fg="white",
+                           font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghij.place(x=980, y=455)
+        sf.qty4 = Entry(sf.vegf2, textvariable=sf.q4, bg="white", font=("default", 12), width=4, )
+        sf.qty4.place(x=1080, y=455)
 
-        sf.add4 = Button(sf.vegf2, text="ADD", command=lambda: addch4(), bg="#0b1335", cursor="hand2", fg="white", bd=4,
+        sf.add4 = Button(sf.vegf2, text="ADD", command=lambda: addch4(), bg="#FF9A03", cursor="hand2", fg="white", bd=4,
                          font=("default", 12, 'bold'))
-        sf.add4.place(x=850, y=480)
+        sf.add4.place(x=1220, y=378)
 
         def addch4():
             if sf.v4.get() == 10:
@@ -1110,12 +1099,21 @@ class Burger:
                 pric4 = 199
             sf.addlist(["Combo  ", ch4, sf.q4.get(), pric4 * int(sf.q4.get())])
 
-        sf.con = Button(sf.vegf2, text="Confirm Order", command=lambda: sf.Orderde(sf.x), bg="#0b1335", cursor="hand2",
-                        fg="white", bd=5, font=("default", 18, 'bold'))
-        sf.con.place(x=1050, y=250)
-        sf.more = Button(sf.vegf2, text="Add More..", command=lambda: sf.menulist(sf.x), bg="#0b1335", cursor="hand2",
-                         fg="white", bd=5, font=("default", 18, 'bold'))
-        sf.more.place(x=1050, y=350)
+        sf.con = Button(sf.vegf2, text="Confirm Order", command=lambda: sf.Orderde(sf.x), bg="#FF9A03", cursor="hand2",
+                        fg="white", bd=3, font=("Montserrat ExtraBold", 12, 'bold'))
+        sf.con.place(x=500, y=520)
+        sf.more = Button(sf.vegf2, text="Add More..", command=lambda: sf.menulist(sf.x), bg="#FF9A03", cursor="hand2",
+                         fg="white", bd=3, font=("Montserrat ExtraBold", 12, 'bold'))
+        sf.more.place(x=750, y=520)
+        def logout():
+            sf.akyn = messagebox.askyesno("Are you sure?", "Are you sure want to log out?")
+            if sf.akyn:
+                sf.Login()
+
+        sf.out = Button(sf.vegf2, bg="#fdcb7a", cursor="hand2", command=lambda: logout(), bd=0)
+        sf.out.place(x=10, y=580)
+        sf.outimg = PhotoImage(file="Images/Buttons/logoutbutton.png")
+        sf.out.config(image=sf.outimg)
         sf.vegf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
@@ -1141,11 +1139,8 @@ class Burger:
         sf.nonvegf1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.nonvegf1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="Images/Assets/logo.png")
-        sf.c.create_image(683, 75, image=sf.logo)
-        ''''sf.home = Button(sf.nonvegf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
-                         fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)'''''
+        sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
+        sf.ba = Label(sf.nonvegf1, image=sf.logo, height=150).place(x=-2, y=0)
 
         def time():
             string = strftime('%I:%M:%S %p')
@@ -1165,11 +1160,8 @@ class Burger:
 
         sf.c = Canvas(sf.nonvegf2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
-        sf.log = Label(sf.nonvegf2, text="NON-VEG BURGER", bg="#9db1f2", font=("Cooper Black", 22))
-        sf.log.place(x=580, y=4)
-        sf.c.create_rectangle(400, 40, 966, 540, fill="#d3ede6", outline="white", width=6)
+        sf.logo1 = PhotoImage(file="Images/Assets/6.png")
+        sf.mal = Label(sf.nonvegf2, image=sf.logo1, height=618).place(x=-2, y=0)
         sf.q5 = StringVar()
         sf.q6 = StringVar()
         sf.q7 = StringVar()
@@ -1179,29 +1171,28 @@ class Burger:
         sf.q7.set("0")
         sf.q8.set("0")
         # burger 1
-        sf.c.create_rectangle(405, 50, 960, 170, width=2)
-        sf.delu = PhotoImage(file="chicken.png")
-        sf.c.create_image(470, 110, image=sf.delu)
-        sf.c.create_text(650, 80, text="Chicken", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(860, 80, text="₹350/₹550/₹200", fill="#ff3838", font=("default", 17, 'bold'))
+        sf.labgh = Label(sf.nonvegf2, text="₹350/₹550/₹200", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labgh.place(x=350, y=200)
         # ch5=sf.check(sf.nonvegf2,100)
         sf.v5 = IntVar()
-        sf.C51 = Radiobutton(sf.nonvegf2, text="Medium", value=10, variable=sf.v5)
-        sf.C51.place(x=550, y=100)
-        sf.C52 = Radiobutton(sf.nonvegf2, text="Large", value=20, variable=sf.v5)
-        sf.C52.place(x=650, y=100)
-        sf.C53 = Radiobutton(sf.nonvegf2, text="Regular", value=30, variable=sf.v5)
-        sf.C53.place(x=750, y=100)
+        sf.C51 = Radiobutton(sf.nonvegf2, text="Medium", value=10, variable=sf.v5, bg="#febc56")
+        sf.C51.place(x=350, y=220)
+        sf.C52 = Radiobutton(sf.nonvegf2, text="Large", value=20, variable=sf.v5, bg="#febc56")
+        sf.C52.place(x=450, y=220)
+        sf.C53 = Radiobutton(sf.nonvegf2, text="Regular", value=30, variable=sf.v5, bg="#febc56")
+        sf.C53.place(x=550, y=220)
         sf.C51.select()
         sf.C51.deselect()
         sf.C51.invoke()
-        sf.c.create_text(590, 150, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty5 = Entry(sf.nonvegf2, textvariable=sf.q5, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty5.place(x=650, y=140)
+        sf.labghi = Label(sf.nonvegf2, text="Quantity : ", bg="#febc56", fg="white",
+                          font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghi.place(x=355, y=245)
+        sf.qty5 = Entry(sf.nonvegf2, textvariable=sf.q5, bg="white", font=("default", 12), width=4, )
+        sf.qty5.place(x=455, y=245)
 
-        sf.add5 = Button(sf.nonvegf2, text="ADD", command=lambda: addch5(), bg="#0b1335", cursor="hand2", fg="white",
+        sf.add5 = Button(sf.nonvegf2, text="ADD", command=lambda: addch5(), bg="#FF9A03", cursor="hand2", fg="white",
                          bd=4, font=("default", 12, 'bold'))
-        sf.add5.place(x=850, y=120)
+        sf.add5.place(x=650, y=178)
 
         def addch5():
             if sf.v5.get() == 10:
@@ -1216,29 +1207,28 @@ class Burger:
             sf.addlist(["Chicken", ch5, sf.q5.get(), pric5 * int(sf.q5.get())])
 
         # burger 2
-        sf.c.create_rectangle(405, 170, 960, 290, width=2)
-        sf.vag = PhotoImage(file="crispy.png")
-        sf.c.create_image(470, 230, image=sf.vag)
-        sf.c.create_text(650, 200, text="Chicken Crispy", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(860, 200, text="₹400/₹600/₹250", fill="#ff3838", font=("default", 17, 'bold'))
+        sf.labkl = Label(sf.nonvegf2, text="₹400/₹600/₹250", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labkl.place(x=350, y=410)
         # ch6=sf.check(sf.nonvegf2,220)
         sf.v6 = IntVar()
-        sf.C61 = Radiobutton(sf.nonvegf2, text="Medium", value=10, variable=sf.v6)
-        sf.C61.place(x=550, y=220)
-        sf.C62 = Radiobutton(sf.nonvegf2, text="Large", value=20, variable=sf.v6)
-        sf.C62.place(x=650, y=220)
-        sf.C63 = Radiobutton(sf.nonvegf2, text="Regular", value=30, variable=sf.v6)
-        sf.C63.place(x=750, y=220)
+        sf.C61 = Radiobutton(sf.nonvegf2, text="Medium", value=10, variable=sf.v6, bg="#febc56")
+        sf.C61.place(x=350, y=430)
+        sf.C62 = Radiobutton(sf.nonvegf2, text="Large", value=20, variable=sf.v6, bg="#febc56")
+        sf.C62.place(x=450, y=430)
+        sf.C63 = Radiobutton(sf.nonvegf2, text="Regular", value=30, variable=sf.v6, bg="#febc56")
+        sf.C63.place(x=550, y=430)
         sf.C61.select()
         sf.C61.deselect()
         sf.C61.invoke()
-        sf.c.create_text(590, 270, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty6 = Entry(sf.nonvegf2, textvariable=sf.q6, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty6.place(x=650, y=260)
+        sf.labghi = Label(sf.nonvegf2, text="Quantity : ", bg="#febc56", fg="white",
+                          font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghi.place(x=355, y=455)
+        sf.qty6 = Entry(sf.nonvegf2, textvariable=sf.q6, bg="white", font=("default", 12), width=4, )
+        sf.qty6.place(x=455, y=455)
 
-        sf.add6 = Button(sf.nonvegf2, text="ADD", command=lambda: addch6(), bg="#0b1335", cursor="hand2", fg="white",
+        sf.add6 = Button(sf.nonvegf2, text="ADD", command=lambda: addch6(), bg="#FF9A03", cursor="hand2", fg="white",
                          bd=4, font=("default", 12, 'bold'))
-        sf.add6.place(x=850, y=240)
+        sf.add6.place(x=670, y=378)
 
         def addch6():
             if sf.v6.get() == 10:
@@ -1253,29 +1243,28 @@ class Burger:
             sf.addlist(["Chicken Crispy", ch6, sf.q6.get(), pric6 * int(sf.q6.get())])
 
         # burger 3
-        sf.c.create_rectangle(405, 290, 960, 410, width=2)
-        sf.pep = PhotoImage(file="whooper.png")
-        sf.c.create_image(470, 350, image=sf.pep)
-        sf.c.create_text(650, 320, text="Chicken Whooper", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(860, 320, text="₹385/₹550/₹225", fill="#ff3838", font=("default", 17, 'bold'))
+        sf.labgh = Label(sf.nonvegf2, text="₹385/₹550/₹225", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labgh.place(x=960, y=200)
         # ch7=sf.check(sf.nonvegf2,340)
         sf.v7 = IntVar()
-        sf.C71 = Radiobutton(sf.nonvegf2, text="Medium", value=10, variable=sf.v7)
-        sf.C71.place(x=550, y=340)
-        sf.C72 = Radiobutton(sf.nonvegf2, text="Large", value=20, variable=sf.v7)
-        sf.C72.place(x=650, y=340)
-        sf.C73 = Radiobutton(sf.nonvegf2, text="Regular", value=30, variable=sf.v7)
-        sf.C73.place(x=750, y=340)
+        sf.C71 = Radiobutton(sf.nonvegf2, text="Medium", value=10, variable=sf.v7, bg="#febc56")
+        sf.C71.place(x=960, y=220)
+        sf.C72 = Radiobutton(sf.nonvegf2, text="Large", value=20, variable=sf.v7, bg="#febc56")
+        sf.C72.place(x=1060, y=220)
+        sf.C73 = Radiobutton(sf.nonvegf2, text="Regular", value=30, variable=sf.v7, bg="#febc56")
+        sf.C73.place(x=1160, y=220)
         sf.C71.select()
         sf.C71.deselect()
         sf.C71.invoke()
-        sf.c.create_text(590, 390, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty7 = Entry(sf.nonvegf2, textvariable=sf.q7, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty7.place(x=650, y=380)
+        sf.labghij = Label(sf.nonvegf2, text="Quantity : ", bg="#febc56", fg="white",
+                           font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghij.place(x=965, y=245)
+        sf.qty7 = Entry(sf.nonvegf2, textvariable=sf.q7, bg="white", font=("default", 12), width=4, )
+        sf.qty7.place(x=1065, y=245)
 
-        sf.add7 = Button(sf.nonvegf2, text="ADD", command=lambda: addch7(), bg="#0b1335", cursor="hand2", fg="white",
+        sf.add7 = Button(sf.nonvegf2, text="ADD", command=lambda: addch7(), bg="#FF9A03", cursor="hand2", fg="white",
                          bd=4, font=("default", 12, 'bold'))
-        sf.add7.place(x=850, y=360)
+        sf.add7.place(x=1220, y=173)
 
         def addch7():
             if sf.v7.get() == 10:
@@ -1290,28 +1279,27 @@ class Burger:
             sf.addlist(["Chicken Whooper", ch7, sf.q7.get(), pric7 * int(sf.q7.get())])
 
         # burger 4
-        sf.c.create_rectangle(405, 410, 960, 530, width=2)
-        sf.mag = PhotoImage(file="chickencheese.png")
-        sf.c.create_image(470, 470, image=sf.mag)
-        sf.c.create_text(650, 440, text="Chicken Cheese", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(860, 440, text="₹295/₹485/₹199", fill="#ff3838", font=("default", 17, 'bold'))
+        sf.labghk = Label(sf.nonvegf2, text="₹295/₹485/₹199", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labghk.place(x=960, y=410)
         # ch8=sf.check(sf.nonvegf2,460)
         sf.v8 = IntVar()
-        sf.C81 = Radiobutton(sf.nonvegf2, text="Medium", value=10, variable=sf.v8)
-        sf.C81.place(x=550, y=460)
-        sf.C82 = Radiobutton(sf.nonvegf2, text="Large", value=20, variable=sf.v8)
-        sf.C82.place(x=650, y=460)
-        sf.C83 = Radiobutton(sf.nonvegf2, text="Regular", value=30, variable=sf.v8)
-        sf.C83.place(x=750, y=460)
+        sf.C81 = Radiobutton(sf.nonvegf2, text="Medium", value=10, variable=sf.v8, bg="#febc56")
+        sf.C81.place(x=980, y=430)
+        sf.C82 = Radiobutton(sf.nonvegf2, text="Large", value=20, variable=sf.v8, bg="#febc56")
+        sf.C82.place(x=1080, y=430)
+        sf.C83 = Radiobutton(sf.nonvegf2, text="Regular", value=30, variable=sf.v8, bg="#febc56")
+        sf.C83.place(x=1180, y=430)
         sf.C81.select()
         sf.C81.deselect()
         sf.C81.invoke()
-        sf.c.create_text(590, 500, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty8 = Entry(sf.nonvegf2, textvariable=sf.q8, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty8.place(x=650, y=500)
-        sf.add8 = Button(sf.nonvegf2, text="ADD", command=lambda: addch8(), bg="#0b1335", cursor="hand2", fg="white",
+        sf.labghij = Label(sf.nonvegf2, text="Quantity : ", bg="#febc56", fg="white",
+                           font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghij.place(x=980, y=455)
+        sf.qty8 = Entry(sf.nonvegf2, textvariable=sf.q8, bg="white", font=("default", 12), width=4, )
+        sf.qty8.place(x=1080, y=455)
+        sf.add8 = Button(sf.nonvegf2, text="ADD", command=lambda: addch8(), bg="#FF9A03", cursor="hand2", fg="white",
                          bd=4, font=("default", 12, 'bold'))
-        sf.add8.place(x=850, y=480)
+        sf.add8.place(x=1220, y=378)
 
         def addch8():
             if sf.v8.get() == 10:
@@ -1325,12 +1313,22 @@ class Burger:
                 pric8 = 199
             sf.addlist(["Chicken Cheese", ch8, sf.q8.get(), pric8 * int(sf.q8.get())])
 
-        sf.con = Button(sf.nonvegf2, text="Confirm Order", command=lambda: sf.Orderde(sf.x), bg="#0b1335",
-                        cursor="hand2", fg="white", bd=5, font=("default", 18, 'bold'))
-        sf.con.place(x=1050, y=250)
-        sf.more = Button(sf.nonvegf2, text="Add More..", command=lambda: sf.menulist(sf.x), bg="#0b1335",
-                         cursor="hand2", fg="white", bd=5, font=("default", 18, 'bold'))
-        sf.more.place(x=1050, y=350)
+        sf.con = Button(sf.nonvegf2, text="Confirm Order", command=lambda: sf.Orderde(sf.x), bg="#FF9A03",
+                        cursor="hand2", fg="white", bd=3, font=("Montserrat ExtraBold", 12, 'bold'))
+        sf.con.place(x=500, y=520)
+        sf.more = Button(sf.nonvegf2, text="Add More..", command=lambda: sf.menulist(sf.x), bg="#FF9A03",
+                         cursor="hand2", fg="white", bd=3, font=("Montserrat ExtraBold", 12, 'bold'))
+        sf.more.place(x=750, y=520)
+
+        def logout():
+            sf.akyn = messagebox.askyesno("Are you sure?", "Are you sure want to log out?")
+            if sf.akyn:
+                sf.Login()
+
+        sf.out = Button(sf.nonvegf2, bg="#fdcb7a", cursor="hand2", command=lambda: logout(), bd=0)
+        sf.out.place(x=10, y=580)
+        sf.outimg = PhotoImage(file="Images/Buttons/logoutbutton.png")
+        sf.out.config(image=sf.outimg)
         sf.nonvegf2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
@@ -1347,12 +1345,8 @@ class Burger:
         sf.spef1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.spef1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="Images/Assets/logo.png")
-        sf.c.create_image(683, 75, image=sf.logo)
-        ''''sf.home = Button(sf.spef1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
-                         bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)'''''
-
+        sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
+        sf.ba = Label(sf.spef1, image=sf.logo, height=150).place(x=-2, y=0)
         def time():
             string = strftime('%I:%M:%S %p')
             sf.tim.config(text=string)
@@ -1371,11 +1365,8 @@ class Burger:
 
         sf.c = Canvas(sf.spef2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
-        sf.log = Label(sf.spef2, text="SPECIALTY CHICKEN", bg="#9db1f2", font=("Cooper Black", 22))
-        sf.log.place(x=540, y=4)
-        sf.c.create_rectangle(400, 40, 966, 420, fill="#d3ede6", outline="white", width=6)
+        sf.logo1 = PhotoImage(file="Images/Assets/7.png")
+        sf.mal = Label(sf.spef2, image=sf.logo1, height=618).place(x=-2, y=0)
         sf.q9 = StringVar()
         sf.q10 = StringVar()
         sf.q11 = StringVar()
@@ -1383,55 +1374,62 @@ class Burger:
         sf.q10.set("0")
         sf.q11.set("0")
         # burger 1
-        sf.c.create_rectangle(405, 50, 960, 170, width=2)
-        sf.delu = PhotoImage(file="roasted.png")
-        sf.c.create_image(470, 110, image=sf.delu)
-        sf.c.create_text(650, 80, text="Roasted Chicken", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(875, 80, text="₹109", fill="#ff3838", font=("default", 17, 'bold'))
-        sf.c.create_text(590, 120, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty9 = Entry(sf.spef2, textvariable=sf.q9, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty9.place(x=650, y=110)
-        sf.add9 = Button(sf.spef2, text="ADD", command=lambda: addch9(), bg="#0b1335", cursor="hand2", fg="white", bd=4,
+        sf.labgh = Label(sf.spef2, text="₹109", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labgh.place(x=350, y=200)
+        sf.labghi = Label(sf.spef2, text="Quantity : ", bg="#febc56", fg="white",
+                          font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghi.place(x=355, y=245)
+        sf.qty9 = Entry(sf.spef2, textvariable=sf.q9, bg="white", font=("default", 12), width=4, )
+        sf.qty9.place(x=455, y=245)
+        sf.add9 = Button(sf.spef2, text="ADD", command=lambda: addch9(), bg="#FF9A03", cursor="hand2", fg="white", bd=4,
                          font=("default", 12, 'bold'))
-        sf.add9.place(x=850, y=120)
+        sf.add9.place(x=650, y=173)
 
         def addch9():
             sf.addlist(["Roasted Chicken", str("Medium"), sf.q9.get(), 109 * int(sf.q9.get())])
 
         # burger 2
-        sf.c.create_rectangle(405, 170, 960, 290, width=2)
-        sf.vag = PhotoImage(file="chicken-meatballs.jpg")
-        sf.c.create_image(470, 230, image=sf.vag)
-        sf.c.create_text(650, 200, text="Chicken Meatballs", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(875, 200, text="₹99", fill="#ff3838", font=("default", 17, 'bold'))
-        sf.c.create_text(590, 240, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty10 = Entry(sf.spef2, textvariable=sf.q10, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty10.place(x=650, y=230)
+        sf.labkl = Label(sf.spef2, text="₹99", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labkl.place(x=350, y=410)
+        sf.labghi = Label(sf.spef2, text="Quantity : ", bg="#febc56", fg="white",
+                          font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghi.place(x=355, y=455)
+        sf.qty10 = Entry(sf.spef2, textvariable=sf.q10, bg="white", font=("default", 12), width=4, )
+        sf.qty10.place(x=455, y=455)
         sf.add10 = Button(sf.spef2, text="ADD",
                           command=lambda: sf.addlist(
                               ["Chicken Meatballs", str("Medium"), sf.q10.get(), 99 * int(sf.q10.get())]),
-                          bg="#0b1335", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
-        sf.add10.place(x=850, y=240)
+                          bg="#FF9A03", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
+        sf.add10.place(x=670, y=378)
         # burger 3
-        sf.c.create_rectangle(405, 290, 960, 410, width=2)
-        sf.pep = PhotoImage(file="Boneless-Chicken-wings-192x192.png")
-        sf.c.create_image(470, 350, image=sf.pep)
-        sf.c.create_text(650, 320, text="Boneless Chicken", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(875, 320, text="₹139", fill="#ff3838", font=("default", 17, 'bold'))
-        sf.c.create_text(590, 360, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty11 = Entry(sf.spef2, textvariable=sf.q11, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty11.place(x=650, y=350)
+        sf.labgh = Label(sf.spef2, text="₹139", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labgh.place(x=960, y=200)
+        sf.labghij = Label(sf.spef2, text="Quantity : ", bg="#febc56", fg="white",
+                           font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghij.place(x=965, y=245)
+        sf.qty11 = Entry(sf.spef2, textvariable=sf.q11, bg="white", font=("default", 12), width=4, )
+        sf.qty11.place(x=1065, y=245)
         sf.add11 = Button(sf.spef2, text="ADD",
                           command=lambda: sf.addlist(
                               ["Boneless Chiken", str("Medium"), sf.q11.get(), 139 * int(sf.q11.get())]),
-                          bg="#0b1335", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
-        sf.add11.place(x=850, y=360)
-        sf.con = Button(sf.spef2, text="Confirm Order", command=lambda: sf.Orderde(sf.x), bg="#0b1335", cursor="hand2",
-                        fg="white", bd=5, font=("default", 18, 'bold'))
-        sf.con.place(x=600, y=430)
-        sf.more = Button(sf.spef2, text="Add More..", command=lambda: sf.menulist(sf.x), bg="#0b1335", cursor="hand2",
-                         fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.more.place(x=630, y=500)
+                          bg="#FF9A03", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
+        sf.add11.place(x=1220, y=173)
+        sf.con = Button(sf.spef2, text="Confirm Order", command=lambda: sf.Orderde(sf.x), bg="#FF9A03",
+                        cursor="hand2", fg="white", bd=3, font=("Montserrat ExtraBold", 12, 'bold'))
+        sf.con.place(x=500, y=520)
+        sf.more = Button(sf.spef2, text="Add More..", command=lambda: sf.menulist(sf.x), bg="#FF9A03",
+                         cursor="hand2", fg="white", bd=3, font=("Montserrat ExtraBold", 12, 'bold'))
+        sf.more.place(x=750, y=520)
+        def logout():
+            sf.akyn = messagebox.askyesno("Are you sure?", "Are you sure want to log out?")
+            if sf.akyn:
+                sf.Login()
+
+        sf.out = Button(sf.spef2, bg="#fdcb7a", cursor="hand2", command=lambda: logout(), bd=0)
+        sf.out.place(x=10, y=580)
+        sf.outimg = PhotoImage(file="Images/Buttons/logoutbutton.png")
+        sf.out.config(image=sf.outimg)
+
         sf.spef2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
@@ -1448,11 +1446,8 @@ class Burger:
         sf.sidef1 = Frame(sf.scr, height=150, width=1366)
         sf.c = Canvas(sf.sidef1, height=150, width=1366)
         sf.c.pack()
-        sf.logo = PhotoImage(file="Images/Assets/logo.png")
-        sf.c.create_image(683, 75, image=sf.logo)
-        ''''sf.home = Button(sf.sidef1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2",
-                         fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)'''''
+        sf.logo = PhotoImage(file="Images/Assets/logo.PNG")
+        sf.ba = Label(sf.sidef1, image=sf.logo, height=150).place(x=-2, y=0)
 
         def time():
             string = strftime('%I:%M:%S %p')
@@ -1472,11 +1467,8 @@ class Burger:
 
         sf.c = Canvas(sf.sidef2, height=618, width=1366)
         sf.c.pack()
-        sf.logo1 = PhotoImage(file="burgermain.png")
-        sf.c.create_image(683, 309, image=sf.logo1)
-        sf.log = Label(sf.sidef2, text="SIDES & BEVERAGES", bg="#9db1f2", font=("Cooper Black", 22))
-        sf.log.place(x=520, y=4)
-        sf.c.create_rectangle(400, 40, 966, 420, fill="#d3ede6", outline="white", width=6)
+        sf.logo1 = PhotoImage(file="Images/Assets/8.png")
+        sf.mal = Label(sf.sidef2, image=sf.logo1, height=618).place(x=-2, y=0)
         sf.q12 = StringVar()
         sf.q13 = StringVar()
         sf.q14 = StringVar()
@@ -1484,53 +1476,60 @@ class Burger:
         sf.q13.set("0")
         sf.q14.set("0")
         # burger 1
-        sf.c.create_rectangle(405, 50, 960, 170, width=2)
-        sf.delu = PhotoImage(file="coke.png")
-        sf.c.create_image(470, 110, image=sf.delu)
-        sf.c.create_text(650, 80, text="Coke Mobile", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(875, 80, text="₹45", fill="#ff3838", font=("default", 17, 'bold'))
-        sf.c.create_text(590, 120, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty12 = Entry(sf.sidef2, textvariable=sf.q12, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty12.place(x=650, y=110)
+        sf.labgh = Label(sf.sidef2, text="₹45", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labgh.place(x=350, y=200)
+        sf.labghi = Label(sf.sidef2, text="Quantity : ", bg="#febc56", fg="white",
+                          font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghi.place(x=355, y=245)
+        sf.qty12 = Entry(sf.sidef2, textvariable=sf.q12, bg="white", font=("default", 12), width=4, )
+        sf.qty12.place(x=455, y=245)
         sf.add12 = Button(sf.sidef2, text="ADD",
                           command=lambda: sf.addlist(
                               ["Coke Moble", str("Medium"), sf.q12.get(), 45 * int(sf.q12.get())]),
-                          bg="#0b1335", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
-        sf.add12.place(x=850, y=120)
+                          bg="#FF9A03", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
+        sf.add12.place(x=650, y=173)
         # burger 2
-        sf.c.create_rectangle(405, 170, 960, 290, width=2)
-        sf.vag = PhotoImage(file="burger.png")
-        sf.c.create_image(470, 230, image=sf.vag)
-        sf.c.create_text(650, 200, text="Burger Pizza", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(875, 200, text="₹99", fill="#ff3838", font=("default", 17, 'bold'))
-        sf.c.create_text(590, 240, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty13 = Entry(sf.sidef2, textvariable=sf.q13, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty13.place(x=650, y=230)
+        sf.labkl = Label(sf.sidef2, text="₹99", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labkl.place(x=350, y=410)
+        sf.labghi = Label(sf.sidef2, text="Quantity : ", bg="#febc56", fg="white",
+                          font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghi.place(x=355, y=455)
+        sf.qty13 = Entry(sf.sidef2, textvariable=sf.q13, bg="white", font=("default", 12), width=4, )
+        sf.qty13.place(x=445, y=455)
         sf.add13 = Button(sf.sidef2, text="ADD",
                           command=lambda: sf.addlist(
                               ["Burger Pizza", str("Medium"), sf.q13.get(), 99 * int(sf.q13.get())]),
-                          bg="#0b1335", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
-        sf.add13.place(x=850, y=240)
+                          bg="#FF9A03", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
+        sf.add13.place(x=670, y=378)
         # burger 3
-        sf.c.create_rectangle(405, 290, 960, 410, width=2)
-        sf.pep = PhotoImage(file="white.png")
-        sf.c.create_image(470, 350, image=sf.pep)
-        sf.c.create_text(650, 320, text="White Pasta", fill="#000000", font=("Cooper Black", 20))
-        sf.c.create_text(875, 320, text="₹135", fill="#ff3838", font=("default", 17, 'bold'))
-        sf.c.create_text(590, 360, text="Quantity : ", fill="#000000", font=("default", 12))
-        sf.qty14 = Entry(sf.sidef2, textvariable=sf.q14, bg="#aae2d7", font=("default", 12), width=4, )
-        sf.qty14.place(x=650, y=350)
+        sf.labgh = Label(sf.sidef2, text="₹135", bg="#febc56", fg="white", font=("default", 10, 'bold'))
+        sf.labgh.place(x=960, y=200)
+        sf.labghij = Label(sf.sidef2, text="Quantity : ", bg="#febc56", fg="white",
+                           font=("Montserrat ExtraBold", 10, 'bold'))
+        sf.labghij.place(x=965, y=245)
+        sf.qty14 = Entry(sf.sidef2, textvariable=sf.q14, bg="white", font=("default", 12), width=4, )
+        sf.qty14.place(x=1065, y=245)
         sf.add14 = Button(sf.sidef2, text="ADD",
                           command=lambda: sf.addlist(
                               ["White Pasta", str("Medium"), sf.q14.get(), 135 * int(sf.q14.get())]),
-                          bg="#0b1335", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
-        sf.add14.place(x=850, y=360)
-        sf.con = Button(sf.sidef2, text="Confirm Order", command=lambda: sf.Orderde(sf.x), bg="#0b1335", cursor="hand2",
-                        fg="white", bd=5, font=("default", 18, 'bold'))
-        sf.con.place(x=600, y=430)
-        sf.more = Button(sf.sidef2, text="Add More..", command=lambda: sf.menulist(sf.x), bg="#0b1335", cursor="hand2",
-                         fg="white", bd=5, font=("default", 16, 'bold'))
-        sf.more.place(x=630, y=500)
+                          bg="#FF9A03", cursor="hand2", fg="white", bd=4, font=("default", 12, 'bold'))
+        sf.add14.place(x=1220, y=173)
+        sf.con = Button(sf.sidef2, text="Confirm Order", command=lambda: sf.Orderde(sf.x), bg="#FF9A03",
+                        cursor="hand2", fg="white", bd=3, font=("Montserrat ExtraBold", 12, 'bold'))
+        sf.con.place(x=500, y=520)
+        sf.more = Button(sf.sidef2, text="Add More..", command=lambda: sf.menulist(sf.x), bg="#FF9A03",
+                         cursor="hand2", fg="white", bd=3, font=("Montserrat ExtraBold", 12, 'bold'))
+        sf.more.place(x=750, y=520)
+        def logout():
+            sf.akyn = messagebox.askyesno("Are you sure?", "Are you sure want to log out?")
+            if sf.akyn:
+                sf.Login()
+
+        sf.out = Button(sf.sidef2, bg="#fdcb7a", cursor="hand2", command=lambda: logout(), bd=0)
+        sf.out.place(x=10, y=580)
+        sf.outimg = PhotoImage(file="Images/Buttons/logoutbutton.png")
+        sf.out.config(image=sf.outimg)
+
         sf.sidef2.pack(fill=BOTH, expand=1)
         sf.scr.mainloop()
 
@@ -1630,9 +1629,6 @@ class Burger:
         sf.c.pack()
         sf.logo = PhotoImage(file="Images/Assets/logo.png")
         sf.c.create_image(683, 75, image=sf.logo)
-        ''''sf.home = Button(sf.ordf1, text="Log Out", command=lambda: sf.Login(), bg="#0b1335", cursor="hand2", fg="white",
-                         bd=5, font=("default", 16, 'bold'))
-        sf.home.place(x=1000, y=90)'''''
 
         def time():
             string = strftime('%I:%M:%S %p')
